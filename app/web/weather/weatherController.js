@@ -1,40 +1,42 @@
 // api call by zipcode
-var endPoints: http://api.openweathermap.org/data/2.5/forecast/city?zip=10014,us&APPID=bff0f682235785a793d3f9aade60fc80
 
 var router = require("express").Router();
-    Q       = require('q'),
+    Q       = require('q');
+    var mongoose = require('mongoose');
+
+var unirest = require('unirest');
+
+// var xhr = new XMLHttpRequest();
+// var getLocation = xhr.navigator.geolocation.getCurrentPosition(function(position) {
+//  return(position.coords.latitude, position.coords.longitude);
+// })
 
 
+console.log("hereeee")
+// getLocation = longitude and lat from client
+// var Weather = require('../models/chatty');
+var endPoints ="http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&APPID=bff0f682235785a793d3f9aade60fc80"
 
-var unirest = require('unirest')
+// module.exports = {
 
+// create : function (req, res) {
+//   var weatherStatus = new WeatherStatus(req.body);
+//   weatherStatus.save(function (err, result) {
+//     res.json(result);
+//   });
+// },
 
+// getDisplay: function (req, res) {
+//   WeatherStatus.find({}, function (err, results) {
+//     res.json(results);
+//   });
+// }
 
-
-var Meetup = require('../models/meetup');
-
-module.exports.create = function (req, res) {
-  var meetup = new Meetup(req.body);
-  meetup.save(function (err, result) {
-    res.json(result);
-  });
-}
-
-module.exports.list = function (req, res) {
-  Meetup.find({}, function (err, results) {
-    res.json(results);
-  });
-
-unirest.get(retrieveData(input))
+unirest.get(endPoints)
 .header("Accept", "application/json")
 .end(function (result) {
-  // console.log(result.body.hits);
-  res.send(result.body.hits)
+  console.log(result.body)
+  // res.send(result)
 });
-
-   
-  };
-
-
-
-module.exports = router;
+// }
+// module.exports = router;
