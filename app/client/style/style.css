@@ -1,0 +1,19 @@
+.main {
+	background-color: lightblue;
+}
+
+.title {
+	margin-top: 50px;
+	color: #555;
+	text-align: center;
+}
+
+.card .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('../assets/clouds.jpg') center / cover;
+}
+
+.weather {
+	margin-top: 100px;
+}
