@@ -3,8 +3,8 @@ var Phrase = require('./phrasesModel.js');
 module.exports = {
   getPhrases: function(req, res, next) {
     Phrase.find({})
-    .where('temperature').equals(req.body.temperature);
-    .where('weatherEvent').equals(req.body.weatherEvent);
+    .where('temperature').equals(req.body.temperature)
+    .where('weatherEvent').equals(req.body.weatherEvent)
     .exec(function(err, phrases) {
       if(err) console.log(err)
       res.json(phrases);

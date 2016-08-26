@@ -9,6 +9,6 @@ angular.module('chattyWeather', [
 	    controller: 'WeatherController'
 	  })
     .otherwise({
-      redirectTo: '/'
+      redirectTo: '/weather'
     });
 })
