@@ -1,9 +1,14 @@
-var weatherController = require('../weather/linkController.js');
+var router = require('express').Router();
+var weatherController = require('./weather/weatherController.js');
+var phraseController = require('./phrases/phraseController.js');
 
-module.exports = function (app, express) {
+  router.get('/api/weather/', weatherController.getWeather);
+  // router.get('/api/phrases/', phraseController.getPhrases);
+  // router.post('/api/phrases/', phraseController.addPhrase);
 
-  app.get('/api/weather/', weatherController.displayStatus);
-  app.post('/api/weather/', weatherController.createStatus);
+  // router.post('/api/weather/', weatherController.createStatus);
 
-};
 
+
+
+module.exports = router

@@ -3,46 +3,35 @@ var router = require("express").Router();
 var mongoose = require('mongoose');
 var unirest = require('unirest');
 var cors = require("cors");
-
+var request = require("request");
+var express = require('express')
+var app = express();
 
 // var endPoints ="http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&APPID=bff0f682235785a793d3f9aade60fc80"
 
 
+function getWeather (req,res){
+  var headers = {}
+  for (var key in request.headers) {
+    if (request.headers.hasOwnProperty(key)) {
+    headers[key] = request.get(key)
+    }
+  }
+  headers['host'] = 'final-host'
 
+  var newurl = "http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&APPID=bff0f682235785a793d3f9aade60fc80"
+  request.get({url:newurl, headers: headers }, function (error, response, body) {
+  console.log(body)
+  res.send(response.statusCode, body)
 
-function getEndPoint(latNum, lonNum){
-var endPoint = "http://api.openweathermap.org/data/2.5/weather?lat=" + latNum + "&lon=" + lonNum + "&APPID=bff0f682235785a793d3f9aade60fc80"
-return endPoint;
+})
+  
 }
 
-unirest.get(getEndPoint(35,139))
-.headers("Accept", "application/json")
-.end(function (response) {
-console.log(response.body)
-})
 
 module.exports = {
-
-
-createStatus : function (req, res) {
-  console.log(data)
-  //   var weatherStatus = new WeatherStatus(req.body);
-  // weatherStatus.save(function (err, result) {
-  //   res.json(result);
-  // });
-}
+getWeather: getWeather
 
 }
 
-// displayStatus: function (req, res) {
-//   WeatherStatus.find({}, function (err, results) {
-//     res.json(results);
-//   });
-// }
 
-
-// }
-
-
-
-// module.exports = router;
