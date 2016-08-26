@@ -4,6 +4,7 @@ var cors = require('cors');
 var app = express();
 var router = require("./router.js")
 
+app.use(cors());
 app.use(express.static(__dirname + '/../client'));
 app.use("/",router)
 
