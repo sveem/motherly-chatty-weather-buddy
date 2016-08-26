@@ -18,26 +18,17 @@ var endPoint = "http://api.openweathermap.org/data/2.5/weather?lat=" + latNum + 
 return endPoint;
 }
 
-
-
-// module.exports = {
-
-
-
-  console.log("ding ding ding")
 unirest.get("http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&APPID=bff0f682235785a793d3f9aade60fc80")
 .header("Accept", "application/json")
 .end(function (result) {
   console.log(result.body)
-  // res.send(result.body)
 })
 
+module.exports = {
 
-
-
-
-// createStatus : function (req, res) {
-
+createStatus : function (req, res) {
+  // res.send(result.body)
+}
 //     // var weatherStatus = new WeatherStatus(req.body);
 //   // weatherStatus.save(function (err, result) {
 //   //   res.json(result);
@@ -51,8 +42,8 @@ unirest.get("http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&APPID
 // }
 
 
-// }
+}
 
+}
 
-
-module.exports = router;
+// module.exports = router;

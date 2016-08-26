@@ -8,6 +8,8 @@
   },
   "author": "",
   "dependencies": {
+    "cors": "^2.8.0",
+    "q": "^1.4.1",
     "unirest": "^0.5.1"
   }
 }
