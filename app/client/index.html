@@ -3,11 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <title>Chatty Weather</title>
+    <link rel="stylesheet" href="./lib/mdl/material.min.css">
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="./lib/mdl/material.min.js"></script>
   </head>
-  <body>
-    <h1>Chatty Weather</h1>
-
-    <div ng-view></div>
+  <body class="main">
+    <div class="mdl-grid">
+      <h1 class="mdl-cell mdl-cell--12-col title">Chatty Weather</h1>
+      <div class="mdl-grid" ng-view></div>
+    </div>
 
     <script src="lib/angular.min.js"></script>
     <script src="lib/angular-route.min.js"></script>
