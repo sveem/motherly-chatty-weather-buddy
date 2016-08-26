@@ -1,5 +1,5 @@
-angular.module('chattyWeather.boards', [])
+angular.module('chattyWeather.weather', [])
 
-.controller('WeatherController', function()) {
+.controller('WeatherController', function() {
 	
-}
+})
