@@ -1,5 +1,6 @@
 angular.module('chattyWeather', [
   'chattyWeather.weather',
+  'chattyWeather.service',
   'ngRoute'
   ])
 .config(function($routeProvider, $httpProvider) {
