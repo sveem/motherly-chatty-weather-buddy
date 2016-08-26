@@ -1,4 +1,6 @@
-var Phrase = require('./phrasesModel.js');
+var Phrase = require('./phraseModel.js');
+
+
 
 module.exports = {
   getPhrases: function(req, res, next) {
