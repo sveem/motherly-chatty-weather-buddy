@@ -4,16 +4,11 @@ var cors = require('cors');
 var app = express();
 var router = require("./router.js")
 
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+app.use(cors());
+
 app.use(express.static(__dirname + '/../client'));
+
 app.use("/",router)
-
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
-
-
-
-app.listen(process.env.PORT || 3000, function () {
-  console.log('Example app listening on port 3000!');
-});
-
+app.listen(process.env.PORT || 3000);
