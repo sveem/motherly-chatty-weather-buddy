@@ -5,8 +5,8 @@ angular.module('chattyWeather.service', [])
   var getWeatherData = function () {
     return new Promise(function(resolve, reject) {
       $window.navigator.geolocation.getCurrentPosition(function(location) {
-        var latitude = Math.floor(location.coords.latitude);
-        var longitude = Math.floor(location.coords.longitude);
+        var latitude = location.coords.latitude;
+        var longitude = location.coords.longitude;
         console.log('here', latitude, longitude);
         resolve($http({
           method: 'GET',
