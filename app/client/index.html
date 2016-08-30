@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="./style/style.css">
     <script src="./lib/mdl/material.min.js"></script>
   </head>
-  <body class="main">
+  <body class="main" id="bg-anim">
     <div class="mdl-grid">
       <h1 class="mdl-cell mdl-cell--12-col title">Chatty Weather</h1>
       <div class="mdl-grid" ng-view></div>
     </div>
+
+    <div id="sun"></div>
 
     <script src="lib/angular.min.js"></script>
     <script src="lib/angular-route.min.js"></script>
