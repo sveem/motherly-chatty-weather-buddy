@@ -4,6 +4,7 @@ var Phrase = require('./phraseModel.js');
 
 module.exports = {
   getPhrases: function(req, res, next) {
+    req.body = req.query
     Phrase.find({})
     .where('temperature').equals(req.body.temperature)
     .where('weatherEvent').equals(req.body.weatherEvent)
