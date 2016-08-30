@@ -17,7 +17,7 @@ var app = express();
 //     headers[key] = request.get(key)
 //     }
 //   }
-//   headers['host'] = 'final-host'
+//   headers['host'] = 'final-h'
 //   var newurl = "http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&APPID=bff0f682235785a793d3f9aade60fc80"
 //   request.get({url:newurl, headers: headers }, function (error, response, body) {
 //   console.log(body)
@@ -28,19 +28,22 @@ var app = express();
 // }
 
 
-function getHourly (req,res){
+function getHourly (req, res, next){
  var headers = {}
  for (var key in request.headers) {
    if (request.headers.hasOwnProperty(key)) {
    headers[key] = request.get(key)
    }
  }
- var newurl = "https://api.forecast.io/forecast/32fb6fd1e3da63be7cd7cae8121fe98a/" + req.query.latitude + "," + req.query.longitude;
- request.get({url:newurl}, function (error, response, body) {
- console.log(JSON.parse(body).hourly)
- res.send(response.statusCode, JSON.parse(body).hourly)
+  var newurl = "https://api.forecast.io/forecast/32fb6fd1e3da63be7cd7cae8121fe98a/" 
+    + req.query.latitude + "," + req.query.longitude;
 
-})
+  request.get({url:newurl}, function (error, response, body) {
+   //console.log(JSON.parse(body).hourly)
+   if(error) next(error);
+   req.body = JSON.stringify(JSON.parse(body).hourly);
+   next();
+  })
  
 }
 
