@@ -23,7 +23,7 @@ headers['host'] = 'final-host';
 var newurl = "https://511ny.org/api/getevents?key={66202881ff9b491697d3ff762e917748}&format={json}";
 
 request.get({url:newurl}, function (error, response, body) {
-console.log(body);
+  console.log(JSON.parse(body));
   res.end(body);
   }); 
 }
