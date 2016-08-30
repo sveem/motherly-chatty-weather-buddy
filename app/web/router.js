@@ -5,8 +5,8 @@ var transportationController = require('./transportation/transportationControlle
 
   router.get('/api/weather/', weatherController.getWeather);
   router.get('/api/transportation/', transportationController.getTransportEvents);
-  // router.get('/api/phrases/', phraseController.getPhrases);
-  // router.post('/api/phrases/', phraseController.addPhrase);
+  router.get('/api/phrases/', phraseController.getPhrases);
+  router.post('/api/phrases/', phraseController.addPhrase);
 
   // router.post('/api/weather/', weatherController.createStatus);
 
