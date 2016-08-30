@@ -3,16 +3,28 @@ var util = require('./util.js');
 
 module.exports = {
   getWeatherPhrases: function(req, res, next) {
-    var temperature = "";
-    var weatherEvent = "";
     var hourlyData = JSON.parse(req.body).data;
+    var temperature = "";
+    var weatherEvent = hourlyData[0].icon;
     var avgTemperature = 0;
-    for(let i = 0; i < 24; i++) {
-      avgTemperature += hourlyData[i].temperature / 24;
+    var events = [];
+
+    for(let i = 0; i < 12; i++) {
+      avgTemperature += hourlyData[i].temperature / 12;
     }
     temperature = util.fahrenheitToString(avgTemperature);
+
     console.log(temperature);
     console.log(weatherEvent);
-    res.end(req.body)
+
+    req.body = {
+      temperature: temperature, 
+      weatherEvent: weatherEvent.slice(0, 5)
+    };
+
+    req.query = req.body;
+
+    next();
+    //res.end(JSON.stringify(req.body));
   }
 };
