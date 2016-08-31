@@ -1,7 +1,11 @@
 html, body {margin: 0; height: 100%; overflow: hidden}
 
-.main {
-  background-color: lightblue;
+#main {
+  font-size: 30px;
+  width: 800px;
+  margin: auto;
+  margin-top: 250px; 
+  text-align: center;
 }
 
 .title {
