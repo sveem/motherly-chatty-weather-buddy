@@ -9,7 +9,7 @@ module.exports = {
     var avgTemperature = 0;
     var events = [];
 
-    for(let i = 0; i < 12; i++) {
+    for(var i = 0; i < 12; i++) {
       avgTemperature += hourlyData[i].temperature / 12;
     }
     temperature = util.fahrenheitToString(avgTemperature);
