@@ -10,6 +10,7 @@ module.exports = {
     .where('weatherEvent').equals(req.body.weatherEvent)
     .exec(function(err, phrases) {
       if(err) console.log(err)
+      phrases = order(phrases);
       res.json(phrases);
     });
   },
@@ -28,3 +29,20 @@ module.exports = {
     })
   }
 };
+
+function order(phrases) {
+  result = {
+    phrases: [],
+    foods: [],
+    activity: [],
+    props: []
+  }
+  for(var i in phrases) {
+    if(phrases[i].type === "activity") result.activity.push(phrases[i].name);
+    if(phrases[i].type === "foods") result.foods.push(phrases[i].name);
+    if(phrases[i].type === "props") result.props.push(phrases[i].name);
+    if(phrases[i].type === "phrases") result.phrases.push(phrases[i].name);
+  }
+  console.log(result);
+  return result;
+}
