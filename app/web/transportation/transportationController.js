@@ -11,7 +11,6 @@ var app = express();
 //API key: 66202881ff9b491697d3ff762e917748
 //Format: Json
 
-
 function getTransportEvents (req, res){
 var headers = {}
   for (var key in request.headers) {
