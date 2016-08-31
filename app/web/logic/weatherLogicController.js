@@ -19,7 +19,7 @@ module.exports = {
 
     req.body = {
       temperature: temperature, 
-      weatherEvent: weatherEvent.slice(0, 5)
+      weatherEvent: weatherEvent
     };
 
     req.query = req.body;
