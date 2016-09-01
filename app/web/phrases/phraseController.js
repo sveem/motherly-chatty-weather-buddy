@@ -13,6 +13,7 @@ module.exports = {
     .exec(function(err, phrases) {
       if(err) console.log(err)
       phrases = order(phrases);
+      phrases.weatherEvent = req.body.weatherEvent;
       phrases.temperature = copyReq.temperatureNum;
       phrases.timezone = copyReq.timezone;
       res.json(phrases);
