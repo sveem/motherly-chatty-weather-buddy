@@ -1,6 +1,6 @@
 angular.module('chattyWeather.weather', [])
 
-.controller('WeatherController', function($scope, goGet) {
+.controller('WeatherController', function($scope, goGet, Activities) {
 	var weatherData;
   $scope.phrase = ". . loading . .";
   $scope.food;
@@ -41,6 +41,8 @@ angular.module('chattyWeather.weather', [])
       $scope.food = data.foods[Math.floor(Math.random() * data.foods.length)];
       $scope.prop = data.props[Math.floor(Math.random() * data.props.length)];
       $scope.activity = data.activity[Math.floor(Math.random() * data.activity.length)];
+        $scope.getTerm = Activities.getYelpTerm;
+
       $scope.temp = data.temperature + " ℉";
       $scope.city = data.timezone.split("/")[1].split("_").join(" ");
       $scope.time = timeNow();

@@ -1,5 +1,6 @@
 var router = require("express").Router();
 var cors = require("cors");
+// var phrases = require('./phrases/phraseController.js');
 var request = require("request");
 var express = require('express')
 var app = express();
@@ -16,10 +17,11 @@ var yelp = new Yelp({
 
 
 
-function getEvents (req,res){
-console.log('here')
+
+function getActivities (req,res){
 yelp.search({
-	term: "ice cream", location: 'Manhattan', sort: 2, limit: 10 })
+	    term: req.data, location: 'Manhattan', sort: 2, limit: 10 })
+console.log(req.data)
 .then(function (data) {
   console.log(typeof data.businesses);
   res.send(data.businesses)
@@ -32,5 +34,5 @@ yelp.search({
 
 
 module.exports = {
-getEvents: getEvents
+getActivities: getActivities
 }

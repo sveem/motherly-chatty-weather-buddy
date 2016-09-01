@@ -51,7 +51,6 @@ function getHourly (req, res, next){
 
 
 module.exports = {
-// getWeather: getWeather,
 getHourly: getHourly
 
 }
