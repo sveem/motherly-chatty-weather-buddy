@@ -1,6 +1,5 @@
 var router = require("express").Router();
 var mongoose = require('mongoose');
-var unirest = require('unirest');
 var cors = require("cors");
 var request = require("request");
 var express = require('express')
@@ -28,6 +27,7 @@ var app = express();
 
 
 function getHourly (req, res, next){
+  console.log("******")
  var headers = {}
  for (var key in request.headers) {
    if (request.headers.hasOwnProperty(key)) {
