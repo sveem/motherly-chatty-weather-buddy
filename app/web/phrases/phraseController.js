@@ -4,7 +4,7 @@ var Phrase = require('./phraseModel.js');
 
 module.exports = {
   getPhrases: function(req, res, next) {
-    copyReq = req.body;
+    var copyReq = req.body;
     console.log(copyReq);
     req.body = req.query
     Phrase.find({})
