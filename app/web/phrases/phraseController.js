@@ -16,7 +16,7 @@ module.exports = {
       phrases.weatherEvent = req.body.weatherEvent;
       phrases.temperature = copyReq.temperatureNum;
       phrases.timezone = copyReq.timezone;
-      phrases.subwayInfo = req.body.subwayInfo
+      phrases.subwayInfo = req.body.subwayInfo;
 
       res.json(phrases);
     });
