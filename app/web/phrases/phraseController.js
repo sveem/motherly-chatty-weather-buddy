@@ -13,14 +13,14 @@ module.exports = {
     .exec(function(err, phrases) {
       if(err) console.log(err)
       phrases = order(phrases);
-<<<<<<< d6a592871a74d286b1349ca57a1968ffa5d327b7
+
       phrases.weatherEvent = req.body.weatherEvent;
       phrases.temperature = copyReq.temperatureNum;
       phrases.timezone = copyReq.timezone;
-=======
+
       phrases.subwayInfo = req.body.subwayInfo
       console.log('Data sent: ', phrases)
->>>>>>> subway information
+
       res.json(phrases);
     });
   },
