@@ -11,6 +11,8 @@ module.exports = {
     .exec(function(err, phrases) {
       if(err) console.log(err)
       phrases = order(phrases);
+      phrases.subwayInfo = req.body.subwayInfo
+      console.log('Data sent: ', phrases)
       res.json(phrases);
     });
   },
@@ -43,6 +45,5 @@ function order(phrases) {
     if(phrases[i].type === "props") result.props.push(phrases[i].name);
     if(phrases[i].type === "phrases") result.phrases.push(phrases[i].name);
   }
-  console.log(result);
   return result;
 }
