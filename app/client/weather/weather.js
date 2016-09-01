@@ -23,7 +23,7 @@ angular.module('chattyWeather.weather', [])
       .then(function (data) {
         console.log(data);
         weatherData = data.data;
-        // display(weatherData);
+        display(weatherData);
         setInterval(display.bind(null, weatherData), 5000);
       })
       .catch(function (error) {
