@@ -4,15 +4,25 @@ angular.module('chattyWeather.weather', [])
 	var weatherData;
   $scope.phrase;
   $scope.food;
-  $scope.prop;
+  $scope.prop = "...getting data from server...";
   $scope.activity;
+  $scope.temp;
+  $scope.city;
+  $scope.time;
+
+  function timeNow() {
+    var d = new Date(),
+        h = (d.getHours()<10?'0':'') + d.getHours(),
+        m = (d.getMinutes()<10?'0':'') + d.getMinutes();
+    return h + ':' + m;
+  }
 
   var init = function () {
     goGet.getWeatherData()
       .then(function (data) {
-        console.log(data);
+        // console.log(data);
         weatherData = data.data;
-        display(weatherData)
+        // display(weatherData);
         setInterval(display.bind(null, weatherData), 5000);
       })
       .catch(function (error) {
@@ -26,6 +36,9 @@ angular.module('chattyWeather.weather', [])
       $scope.food = data.foods[Math.floor(Math.random() * data.foods.length)];
       $scope.prop = data.props[Math.floor(Math.random() * data.props.length)];
       $scope.activity = data.activity[Math.floor(Math.random() * data.activity.length)];
+      $scope.temp = data.temperature;
+      $scope.city = data.timezone.split("/")[1];
+      $scope.time = timeNow();
     });
   }
 

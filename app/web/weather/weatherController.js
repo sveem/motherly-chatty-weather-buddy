@@ -39,9 +39,11 @@ function getHourly (req, res, next){
     + req.query.latitude + "," + req.query.longitude;
 
   request.get({url:newurl}, function (error, response, body) {
-   //console.log(JSON.parse(body).hourly)
+   console.log(JSON.parse(body))
    if(error) next(error);
-   req.body = JSON.stringify(JSON.parse(body).hourly);
+   req.body = JSON.parse(body).hourly;
+   req.body.timezone = JSON.parse(body).timezone;
+   req.body = JSON.stringify(req.body);
    next();
   })
  

@@ -4,6 +4,8 @@ var Phrase = require('./phraseModel.js');
 
 module.exports = {
   getPhrases: function(req, res, next) {
+    copyReq = req.body;
+    console.log(copyReq);
     req.body = req.query
     Phrase.find({})
     .where('temperature').equals(req.body.temperature)
@@ -11,6 +13,8 @@ module.exports = {
     .exec(function(err, phrases) {
       if(err) console.log(err)
       phrases = order(phrases);
+      phrases.temperature = copyReq.temperatureNum;
+      phrases.timezone = copyReq.timezone;
       res.json(phrases);
     });
   },
