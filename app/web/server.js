@@ -4,7 +4,7 @@ var cors = require('cors');
 var app = express();
 var router = require("./router.js")
 
-require("./db.js")
+var db = require("./db.js")
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());

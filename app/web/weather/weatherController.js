@@ -24,7 +24,6 @@ var app = express();
 //   res.send(response.statusCode, body)
 
 // })
- 
 // }
 
 
@@ -39,7 +38,7 @@ function getHourly (req, res, next){
     + req.query.latitude + "," + req.query.longitude;
 
   request.get({url:newurl}, function (error, response, body) {
-   //console.log(JSON.parse(body).hourly)
+  console.log(JSON.parse(body).hourly)
    if(error) next(error);
    req.body = JSON.stringify(JSON.parse(body).hourly);
    next();
