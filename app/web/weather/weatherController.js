@@ -40,7 +40,9 @@ function getHourly (req, res, next){
   request.get({url:newurl}, function (error, response, body) {
   console.log(JSON.parse(body).hourly)
    if(error) next(error);
-   req.body = JSON.stringify(JSON.parse(body).hourly);
+   req.body = JSON.parse(body).hourly;
+   req.body.timezone = JSON.parse(body).timezone;
+   req.body = JSON.stringify(req.body);
    next();
   })
  

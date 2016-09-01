@@ -17,7 +17,11 @@ module.exports = {
     console.log(temperature);
     console.log(weatherEvent);
 
+    var timezone = req.body.timezone;
+
     req.body = {
+      timezone: JSON.parse(req.body).timezone,
+      temperatureNum: hourlyData[0].temperature,
       temperature: temperature, 
       weatherEvent: weatherEvent
     };
