@@ -1,14 +1,70 @@
 
 <div>
-  <div>
-    <div id="main">
-      	<p> {{phrase}} </p>
-        <p> {{prop}} </p>
-        <p> {{food}} </p>
-        <p> {{activity}} </p>
+  <div class="wrapper">
+
+
+    <div class="mainBubble">
+    	<div class="mainPhrase">{{phrase}}</div>
     </div>
+
+
+    <div class="infoBox">
+      <div class="infoWrapper">
+        <div class="icon"> 
+            <canvas id="{{weatherEvent}}" width="64" height="64"></canvas>
+        </div>
+        <div class="temp">{{ temp }}</div>
+        <div class="city">{{ city }}</div>
+        <div class="time">{{ time }}</div>
+      </div>
+    </div>
+
+
+    <div class="bubblesBox">
+
+      <div class="bubblesWrapper">
+
+        <div class="bubble">
+          <div class="phrases prop">
+          {{prop}}
+          </div>
+          <div class="subTitle">Props
+          </div>
+        </div>
+
+        <div class="bubble">
+          <div class="phrases food">
+            {{food}}
+          </div>
+          <div class="subTitle">Foods
+          </div>
+        </div>
+
+        <div class="bubble">
+          <div class="phrases activity">
+            {{activity}}
+          </div>
+          <div class="subTitle">Activity
+          </div>
+        </div>
+
+        <div class="bubble">
+          <div class="phrases transportation">
+            {{activity}}
+          </div>
+          <div class="subTitle">MTA alert
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
   </div>
 </div>
+
+
+
 
 
 
