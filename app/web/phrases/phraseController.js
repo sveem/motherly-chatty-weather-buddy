@@ -20,6 +20,7 @@ module.exports = {
 
       phrases.subwayInfo = req.body.subwayInfo
       console.log('Data sent: ', phrases)
+
       res.json(phrases);
     });
   },
