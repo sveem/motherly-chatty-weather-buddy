@@ -2,7 +2,7 @@ angular.module('chattyWeather.weather', [])
 
 .controller('WeatherController', function($scope, goGet) {
 	var weatherData;
-  $scope.phrase = ". . loding . .";
+  $scope.phrase = ". . loading . .";
   $scope.food;
   $scope.prop;
   $scope.activity;

@@ -69,17 +69,22 @@ left: 48%;
   top: 10%;
   left: 50%;
   transform: translate(-50%, -52%);
-  width: 45%;
+  width: 44%;
+  padding-right: 1%;
 
 }
 
 .temp, .city, .time, .icon {
   text-align: center;
   font-size: 2.5rem;
+  padding-top: 15px;
   float: left;
-  width: 18%;
   text-shadow: 1px 1px 2px rgba(255,0,0,0.2);
-
+}
+.icon
+{
+  padding-left: 3%;
+  width: 18%;
 }
 .temp {
   width: 26%;
@@ -90,12 +95,9 @@ left: 48%;
 .time {
   width:22%;
 }
-.temp, .city, .time {
-  padding-top: 10px;
-}
 
 .bubblesBox {
-  margin-top: 120px;
+  margin-top: 110px;
   position: relative;
 }
 .bubblesWrapper {
@@ -182,15 +184,15 @@ left: 48%;
   left: 40%;
   z-index: -1;
 
-  animation: sunanm 40s linear infinite;
+  animation: sunanm 50s linear infinite;
 }
 
 
 @keyframes sunanm {
-  from {  transform: rotate(75deg) translateY(360%) rotate(-75deg); }
-  to   {  transform: rotate(295deg) translateY(360%) rotate(-295deg); }
+  from {  transform: rotate(75deg) translateY(360%) rotate(75deg); }
+  to   {  transform: rotate(295deg) translateY(360%) rotate(295deg); }
 }
-
+/*
 #moon {
   position: absolute;
   background-image: url('../assets/Moon_1.png');
@@ -207,6 +209,6 @@ left: 48%;
 
 
 @keyframes moonanm {
-  from {  transform: rotate(75deg) translateY(360%) rotate(-75deg); }
-  to   {  transform: rotate(295deg) translateY(360%) rotate(-295deg); }
-}
+  from {  transform: rotate(255deg) translateY(360%) rotate(255deg); }
+  to   {  transform: rotate(115deg) translateY(360%) rotate(115deg); }
+} */
