@@ -4,9 +4,7 @@ var mta = new Mta({
   feed_id: 1                  // optional, default = 1
 });
 
-module.exports = {
-
-mtaInfo: function(req, res, next) {
+function mtaInfo(req, res, next) {
 var subwayInfo = [];
 
 mta.status('subway').then(function (result) {
@@ -21,21 +19,26 @@ mta.status('subway').then(function (result) {
   req.query.subwayInfo = subwayInfo;
   next();
  });
-},
-
-getAllMtaData: function(req, res){
-var allSubwayInfo = [];
-
-mta.status('subway').then(function (result) {
-  for(var i = 0; i< result.length; i++) {
-    var allLines = result[i].name;
-    var everyStatus = result[i].status;
-    var allInfo = allLines + " : " + everyStatus;
-      allSubwayInfo.push(allInfo);
-   } 
-   // var allInfoObj = {allData: allSubwayInfo}
-   // console.log(allInfoObj);
-   res.send(allSubwayInfo);
- });
- }
 }
+
+module.exports.mtaInfo = mtaInfo;
+
+/*
+function getHourly (req, res, next){
+ var headers = {}
+ for (var key in request.headers) {
+   if (request.headers.hasOwnProperty(key)) {
+   headers[key] = request.get(key)
+   }
+ }
+ 
+  var newurl = "https://api.forecast.io/forecast/32fb6fd1e3da63be7cd7cae8121fe98a/" 
+    + req.query.latitude + "," + req.query.longitude;
+
+  request.get({url:newurl}, function (error, response, body) {
+   if(error) next(error);
+   req.body = JSON.stringify(JSON.parse(body).hourly);
+   next();
+  })
+}
+*/
