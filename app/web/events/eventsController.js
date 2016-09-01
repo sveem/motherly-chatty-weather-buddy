@@ -17,16 +17,12 @@ var yelp = new Yelp({
 
 
 function getEvents (req,res){
-
-// router.post("eventsApi", function(req, res)
-
-// 	)
 console.log('here')
 yelp.search({
-	category: "icecream, All", category: "yelpevents, All", location: 'Manhattan' })
+	term: "ice cream", location: 'Manhattan', sort: 2, limit: 10 })
 .then(function (data) {
-  console.log(data);
-  res.send(data)
+  console.log(typeof data.businesses);
+  res.send(data.businesses)
 })
 .catch(function (err) {
   console.error(err);
