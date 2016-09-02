@@ -33,6 +33,8 @@ angular.module('chattyWeather.weather', [])
       .catch(function (error) {
         console.error(error);
       });
+
+      positionSunMoon();
   };
 
   var display = function(data) {
@@ -52,9 +54,26 @@ angular.module('chattyWeather.weather', [])
       $scope.city = data.timezone.split("/")[1].split("_").join(" ");
       $scope.time = timeNow();
       
-
     });
   }
   
+  var positionSunMoon = function() {
+    var d = new Date();
+    var min = d.getHours() * 60 +  d.getMinutes() - (7 * 60);
+    var rad = 2 * Math.PI * min / 1440
+    var top = Math.sin(Math.PI - rad) * (window.innerHeight) 
+    var left = Math.cos(Math.PI - rad) * (window.innerHeight)
+    console.log(top, left)
+
+    var sunStyle = document.getElementsByClassName("positionSun")[0].style;
+    sunStyle.top = window.innerHeight -150 - top + "px";
+    sunStyle.left = (window.innerWidth / 2) - 150 + left + "px";
+
+    var moonStyle = document.getElementsByClassName("positionMoon")[0].style;
+    moonStyle.top = window.innerHeight - 150 + top + "px";
+    moonStyle.left = (window.innerWidth / 2) - 150 - left + "px";
+  }
+
+
   init();
 })

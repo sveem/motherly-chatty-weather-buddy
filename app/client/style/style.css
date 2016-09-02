@@ -204,10 +204,10 @@ left: 48%;
   width: 300px;
   height: 300px;
   position: absolute;
-  top: 83%;
+  /*top: 83%;
   left: 40%;
-  animation: sunanm 43200s infinite linear;
-  z-index: 2;
+  animation: sunanm 43200s infinite linear;*/
+  z-index: 2  ;
 }
 
 
@@ -230,9 +230,9 @@ left: 48%;
   width: 300px;
   height: 300px;
   position: absolute;
-  top: 83%;
+  /*top: 83%;
   left: 40%;
-  animation: rainSunanm 43200s infinite linear;
+  animation: rainSunanm 43200s infinite linear;*/
   z-index: 2;
 }
 
@@ -250,22 +250,22 @@ left: 48%;
                rotate(30deg);              
   }
 }
-/*
-#moon {
+
+.positionMoon {
   position: absolute;
   background-image: url('../assets/Moon_1.png');
   background-position: 0px 0px;
   width: 300px;
   height: 300px;
   background-repeat: no-repeat;
-  top: 90%;
-  left: 40%;
-  z-index: -2;
+  /*top: 90%;
+  left: 40%;*/
+  z-index: 2;
 
-  animation: moonanm 40s linear infinite;
+  /*animation: moonanm 40s linear infinite;*/
 }
 
-
+/*
 @keyframes moonanm {
   from {  transform: rotate(255deg) translateY(360%) rotate(255deg); }
   to   {  transform: rotate(115deg) translateY(360%) rotate(115deg); }
