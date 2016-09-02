@@ -33,11 +33,11 @@ angular.module('chattyWeather.weather', [])
       .catch(function (error) {
         console.error(error);
       });
-
-      positionSunMoon();
+   
   };
 
   var display = function(data) {
+    positionSunMoon();
     $scope.$apply(function() {
       $scope.weatherEvent = data.weatherEvent;
       var skycons = new Skycons({"color": "white"});
