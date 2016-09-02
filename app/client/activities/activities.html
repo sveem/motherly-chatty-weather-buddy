@@ -1,0 +1,17 @@
+<div ng-controller = 'activityController'>
+		<h1> Activities </h1>
+		<input id='activities' ng-model= 'input'> 
+
+			
+<ul>
+	<li data-ng-repeat="business in businesses">
+		{{business.name}} - {{business.mobile_url}}
+	</li>
+</ul>
+		</ul>
+		<div class='error' ng-show='error'>
+
+		</div>
+
+</div>
+
