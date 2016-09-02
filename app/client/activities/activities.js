@@ -1,39 +1,36 @@
 angular.module('chattyWeather.activities', [])
 
 .controller('activityController', function($scope, $http, Activities) {
-    var init = function (){
-        Activities.getActivities(activity, $http, $scope)
-        displayActivities(data)
-        }; 
 
-	var displayActivities = function(data){
-		$scope.activities = data
-      for(i=0;i< data.activity.businesses.length;i++){
-        $scope.activites.push(data.activity.businesses[i]);
-      }
-  	}
+  $scope.data = [];
+// console.log(data)
 
-  	init()
-})  	
+var initializeActivities = function () {
+	console.log("hereeee")
+	Activities.postActivities()
+	.then(function (activities) {
+		console.log('activities')
+	         // $scope.data = activities;
+	         for(i=0;i< activities.length;i++){
+	         	$scope.data.push(activities[i])
+	         	console.log(activities[0].name)
+	         	$scope.data[i] = business
+
+	         	var business = {}
+	         	$scope.name = activities[i].name;
+	         	$scope.phone = activities[i].phone
+	         }
+
+	     })
+	.catch(function (error) {
+		console.error(error);
+	});
 
 
+};
 
-// angular.module('shortly.links', [])
+  initializeActivities()
 
-// .controller('LinksController', function ($scope, Links) {
-//   // Your code here
+})
 
-//   $scope.data = {};
 
-//   var initializeLinks = function () {
-//     Links.getAll()
-//       .then(function (links) {
-//         $scope.data.links = links;
-//       })
-//       .catch(function (error) {
-//         console.error(error);
-//       });
-//   };
-
-//   initializeLinks();
-//   });

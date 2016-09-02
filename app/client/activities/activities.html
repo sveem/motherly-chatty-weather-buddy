@@ -1,17 +1,24 @@
-<div ng-controller = 'activityController'>
-		<h1> Activities </h1>
-		<input id='activities' ng-model= 'input'> 
+<div class="container">
 
-			
-<ul>
-	<li data-ng-repeat="business in businesses">
-		{{business.name}} - {{business.mobile_url}}
+
+	<h1> Activities </h1>
+
+<li data-ng-repeat="business in data">
+                    {{business.name}} - {{business.mobile_url}}
+</li>
+	<li class='result' ng-model= 'data' ng-repeat='businesses in data' ng-show='show'>
+		<div class='name'> Name: {{business.name}} </div>
+		<div class='phone'> Phone : {{business.phone}}</div>
+		<div class='address'> Address: {{business.address}}</div>
 	</li>
-</ul>
-		</ul>
-		<div class='error' ng-show='error'>
 
-		</div>
+</ul>
+<div class='error' ng-show='error'>
+	<h3> Sorry, no data matched your search. </h3>
+</div>
+
+</div>
+
 
 </div>
 
