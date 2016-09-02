@@ -1,31 +1,23 @@
-<div class="container" ng-controller="activityController">
-<div id='container'>
-  <!-- Your html here -->
+<div class="container">
 
-  <nav class="navigation">
-    <ul>
-      <li>
-          <a class="selected" href="#/activities">Activities</a>
-      </li>
-       <li>
-          <a href="#/shorten">Shorten</a>
-      </li>
-    </ul>
-  </nav>
-  
+
+	<h1> Activities </h1>
+
+<li data-ng-repeat="business in data">
+                    {{business.name}} - {{business.mobile_url}}
+</li>
+	<li class='result' ng-model= 'data' ng-repeat='businesses in data' ng-show='show'>
+		<div class='name'> Name: {{business.name}} </div>
+		<div class='phone'> Phone : {{business.phone}}</div>
+		<div class='address'> Address: {{business.address}}</div>
+	</li>
+
+</ul>
+<div class='error' ng-show='error'>
+	<h3> Sorry, no data matched your search. </h3>
 </div>
-<input type='text' ng-model='search' placeholder='filter' />
-<div class="activities">
-  <div class="link"
-      ng-repeat="link in data.businesses | filter:search | orderBy:'created_at'">
-    <img src="assets/redirect_icon.png">
-    <div class="info">
-      <div class="visits">
-        <span class="count">{{ link.visits }}</span>Visits
-      </div>
-      <div class="title">{{ link.title }}</div>
-      <div class="original">{{ link.url }}</div>
-      <a href="http://localhost:8000/api/activities/{{ link.baseUrl }}/{{ link.code }}">{{ link.baseUrl }}/{{ link.code }}</a>
-    </div>
-  </div>
-  </div>
+
+</div>
+
+
+</div>
