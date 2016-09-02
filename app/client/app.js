@@ -9,6 +9,11 @@ angular.module('chattyWeather', [
 	    templateUrl: 'weather/weather.html',
 	    controller: 'WeatherController'
 	  })
+      .when('/activities', {
+      templateUrl: 'weather/activities.html',
+      controller: 'activityController'
+    })
+
     .otherwise({
       redirectTo: '/weather'
     });

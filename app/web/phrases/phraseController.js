@@ -5,7 +5,6 @@ var Phrase = require('./phraseModel.js');
 module.exports = {
   getPhrases: function(req, res, next) {
     copyReq = req.body;
-    console.log(copyReq);
     req.body = req.query
     Phrase.find({})
     .where('temperature').equals(req.body.temperature)
@@ -48,6 +47,6 @@ function order(phrases) {
     if(phrases[i].type === "props") result.props.push(phrases[i].name);
     if(phrases[i].type === "phrases") result.phrases.push(phrases[i].name);
   }
-  console.log(result);
+//  console.log(result);
   return result;
 }

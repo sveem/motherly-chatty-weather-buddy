@@ -22,7 +22,6 @@ function getWeather (req,res){
   var newurl = "http://api.openweathermap.org/data/2.5/weather?lat="
    + req.query.latitude + "&lon=" + req.query.longitude + "&APPID=bff0f682235785a793d3f9aade60fc80";
   request.get({url:newurl, headers: headers }, function (error, response, body) {
-  console.log(JSON.parse(body));
   res.status(200).send(JSON.parse(body));
 
   });

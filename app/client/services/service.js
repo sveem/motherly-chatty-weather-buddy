@@ -21,3 +21,40 @@ angular.module('chattyWeather.service', [])
     getWeatherData: getWeatherData
   };
 })
+
+
+
+
+.factory('Activities', function ($http, $location) {
+  var getYelpTerm = function (activity) {
+    $http({
+      method: 'POST',
+      url: '/api/activities',
+      params: {activity:activity}
+    })
+    // .then(function (resp) {
+    //   return resp.data.business;
+    // });
+.success(function(data){
+        $location.path('/activities');
+    });
+  };
+
+
+  var getActivities = function () {
+    return  $http({
+      method: 'GET',
+      url: '/api/activities/',
+      data: data
+    })
+    .then(function (resp) {
+      return resp.data.business;
+    });
+  };
+
+  return {
+    getYelpTerm: getYelpTerm,
+    getActivities: getActivities
+  };
+});
+

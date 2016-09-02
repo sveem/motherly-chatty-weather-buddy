@@ -1,6 +1,5 @@
 var router = require("express").Router();
 var mongoose = require('mongoose');
-var unirest = require('unirest');
 var cors = require("cors");
 var request = require("request");
 var express = require('express')
@@ -28,6 +27,7 @@ var app = express();
 
 
 function getHourly (req, res, next){
+  console.log("******")
  var headers = {}
  for (var key in request.headers) {
    if (request.headers.hasOwnProperty(key)) {
@@ -38,7 +38,6 @@ function getHourly (req, res, next){
     + req.query.latitude + "," + req.query.longitude;
 
   request.get({url:newurl}, function (error, response, body) {
-  console.log(JSON.parse(body).hourly)
    if(error) next(error);
    req.body = JSON.parse(body).hourly;
    req.body.timezone = JSON.parse(body).timezone;
@@ -51,7 +50,6 @@ function getHourly (req, res, next){
 
 
 module.exports = {
-// getWeather: getWeather,
 getHourly: getHourly
 
 }

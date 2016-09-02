@@ -1,6 +1,6 @@
 angular.module('chattyWeather.weather', [])
 
-.controller('WeatherController', function($scope, goGet) {
+.controller('WeatherController', function($scope, goGet, $http, Activities) {
 	var weatherData;
   $scope.phrase = ". . loading . .";
   $scope.food;
@@ -10,6 +10,10 @@ angular.module('chattyWeather.weather', [])
   $scope.city;
   $scope.time;
   $scope.weatherEvent;
+
+  $scope.getActivityTerm = function() {
+    Activities.getYelpTerm($scope.activity)
+  };
 
   function timeNow() {
     var d = new Date(),
@@ -21,9 +25,9 @@ angular.module('chattyWeather.weather', [])
   var init = function () {
     goGet.getWeatherData()
       .then(function (data) {
-        console.log(data);
+        // console.log(data);
         weatherData = data.data;
-        // display(weatherData);
+        display(weatherData);
         setInterval(display.bind(null, weatherData), 5000);
       })
       .catch(function (error) {
@@ -41,6 +45,9 @@ angular.module('chattyWeather.weather', [])
       $scope.food = data.foods[Math.floor(Math.random() * data.foods.length)];
       $scope.prop = data.props[Math.floor(Math.random() * data.props.length)];
       $scope.activity = data.activity[Math.floor(Math.random() * data.activity.length)];
+      
+      $scope.tips = "Want tips on the nearest" + " "+ $scope.activity;   
+
       $scope.temp = data.temperature + " ℉";
       $scope.city = data.timezone.split("/")[1].split("_").join(" ");
       $scope.time = timeNow();
@@ -48,7 +55,6 @@ angular.module('chattyWeather.weather', [])
 
     });
   }
-
   
   init();
 })
