@@ -12,6 +12,10 @@ $(document).ready(function() {
 }, false);
 
 function success(data) {
-  console.log(data)
-  $('#page').append(JSON.stringify(data));
+  $('#temp').append(data.temperature + "F   " + data.weatherEvent.split("-").join(" "));
+
+  $('#phrase').append(data.phrases[Math.floor(Math.random() * data.phrases.length)]);
+  $('#food').append(data.foods[Math.floor(Math.random() * data.foods.length)]);
+  $('#prop').append(data.props[Math.floor(Math.random() * data.props.length)]);
+  $('#activity').append(data.activity[Math.floor(Math.random() * data.activity.length)]);
 }
