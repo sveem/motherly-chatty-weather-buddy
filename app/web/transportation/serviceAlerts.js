@@ -38,4 +38,3 @@ mta.status('subway').then(function (result) {
   }
 }
 
-
