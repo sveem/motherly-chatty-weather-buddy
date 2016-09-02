@@ -4,41 +4,39 @@ var mta = new Mta({
   feed_id: 1                  // optional, default = 1
 });
 
-function mtaInfo(req, res, next) {
+module.exports = {
+
+mtaInfo: function(req, res, next) {
 var subwayInfo = [];
 
 mta.status('subway').then(function (result) {
   for(var i = 0; i< result.length; i++) {
     if(result[i].status === "DELAYS" || result[i].status === "PLANNED WORK") {
-  	var lines = result[i].name;
-  	var status = result[i].status;
-  	var info = lines + " : " + status;
-  	  subwayInfo.push(info);
+    var lines = result[i].name;
+    var status = result[i].status;
+    var info = lines + " : " + status;
+      subwayInfo.push(info);
    } 
   }
   req.query.subwayInfo = subwayInfo;
   next();
  });
-}
+},
 
-module.exports.mtaInfo = mtaInfo;
+getAllMtaData: function(req, res){
+var allSubwayInfo = [];
 
-/*
-function getHourly (req, res, next){
- var headers = {}
- for (var key in request.headers) {
-   if (request.headers.hasOwnProperty(key)) {
-   headers[key] = request.get(key)
-   }
+mta.status('subway').then(function (result) {
+  for(var i = 0; i< result.length; i++) {
+    var allLines = result[i].name;
+    var everyStatus = result[i].status;
+    var allInfo = allLines + " : " + everyStatus;
+      allSubwayInfo.push(allInfo);
+   } 
+   // var allInfoObj = {allData: allSubwayInfo}
+   // console.log(allInfoObj);
+   res.send(JSON.parse(allSubwayInfo));
+   res.json(allSubwayInfo);
+   });
+  }
  }
- 
-  var newurl = "https://api.forecast.io/forecast/32fb6fd1e3da63be7cd7cae8121fe98a/" 
-    + req.query.latitude + "," + req.query.longitude;
-
-  request.get({url:newurl}, function (error, response, body) {
-   if(error) next(error);
-   req.body = JSON.stringify(JSON.parse(body).hourly);
-   next();
-  })
-}
-*/
