@@ -25,36 +25,44 @@ angular.module('chattyWeather.service', [])
 
 
 
+// .factory('Activities', function ($http, $location) {
+//   var getYelpTerm = function (activity) {
+//     $http({
+//       method: 'POST',
+//       url: '/api/activities',
+//       params: {activity:activity}
+//     })
+
+// .success(function(data){
+//         $location.path('/activities');
+//     });
+//   };
+
+//   return {
+//     getYelpTerm: getYelpTerm,
+//     getActivities: getActivities
+//   };
+// });
+
+
 .factory('Activities', function ($http, $location) {
-  var getYelpTerm = function (activity) {
+  var getActivities = function(activity){
     $http({
-      method: 'POST',
-      url: '/api/activities',
-      params: {activity:activity}
-    })
-    // .then(function (resp) {
-    //   return resp.data.business;
-    // });
-.success(function(data){
-        $location.path('/activities');
+      method: 'GET', 
+     url: '/api/activities/',
+     params: {activity:activity},
+   }).         
+    success(function(data, status, headers, config) {
+      return resp.data;
+  }).
+    error(function(data, status, headers, config) {
+      console.log("error")
     });
-  };
+  }
 
+    return {
+      getActivities: getActivities
+    };
 
-  var getActivities = function () {
-    return  $http({
-      method: 'GET',
-      url: '/api/activities/',
-      data: data
-    })
-    .then(function (resp) {
-      return resp.data.business;
-    });
-  };
-
-  return {
-    getYelpTerm: getYelpTerm,
-    getActivities: getActivities
-  };
-});
+})
 
