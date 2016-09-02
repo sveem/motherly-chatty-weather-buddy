@@ -82,7 +82,7 @@ left: 48%;
 .temp, .city, .time, .icon {
   text-align: center;
   font-size: 2.5rem;
-  padding-top: 15px;
+  padding-top: 20px;
   float: left;
   text-shadow: 1px 1px 2px rgba(255,0,0,0.2);
 }
@@ -145,7 +145,7 @@ left: 48%;
   width: 22%;
   float: left;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 400;
 }
 .phrases {
@@ -153,7 +153,7 @@ left: 48%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90%;
+  width: 80%;
 }
 .subTitle {
   position: absolute;
@@ -227,22 +227,22 @@ left: 48%;
   position: absolute;
   top: 83%;
   left: 40%;
-  animation: rainSunanm 5s infinite linear;
+  animation: rainSunanm 43200s infinite linear;
   z-index: 2;
 }
 
 
 @keyframes rainSunanm {
   from {
-    transform: rotate(-135deg)
+    transform: rotate(-150deg)
                translateX(1000px)
-               rotate(135deg);
+               rotate(150deg);
               
   }
   to {
-    transform: rotate(-45deg)
+    transform: rotate(-30deg)
                translateX(1000px) 
-               rotate(45deg);
+               rotate(30deg);
 
               
   }
