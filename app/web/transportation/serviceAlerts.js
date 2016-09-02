@@ -33,15 +33,7 @@ mta.status('subway').then(function (result) {
     var allInfo = allLines + " : " + everyStatus;
       allSubwayInfo.push(allInfo);
    } 
-   // var allInfoObj = {allData: allSubwayInfo}
-   // console.log(allInfoObj);
-<<<<<<< HEAD
-   res.send(JSON.parse(allSubwayInfo));
-=======
    res.json(allSubwayInfo);
->>>>>>> 7f3a599d8ffcb137bb1636511b70ffb35c05d3dc
    });
   }
-
-
- }
+}

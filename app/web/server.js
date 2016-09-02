@@ -14,7 +14,4 @@ app.use(express.static(__dirname + '/../client'));
 
 app.use("/",router)
 
-// app.get("./serviceAlerts.js", function(res, req) {
-// /console.log("HELLO WORLD");
-// // })
 app.listen(process.env.PORT || 3000);
