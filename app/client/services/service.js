@@ -53,8 +53,8 @@ angular.module('chattyWeather.service', [])
   };
 
   return {
-    getYelpTerm: getYelpTerm
-    getActivities: getActivities,
+    getYelpTerm: getYelpTerm,
+    getActivities: getActivities
   };
 });
 
