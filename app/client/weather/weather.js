@@ -6,6 +6,7 @@ angular.module('chattyWeather.weather', [])
   $scope.food;
   $scope.prop;
   $scope.activity;
+  $scope.mtaAlert;
   $scope.temp;
   $scope.city;
   $scope.time;
@@ -25,7 +26,7 @@ angular.module('chattyWeather.weather', [])
   var init = function () {
     goGet.getWeatherData()
       .then(function (data) {
-        // console.log(data);
+        console.log(data);
         weatherData = data.data;
         display(weatherData);
         setInterval(display.bind(null, weatherData), 5000);
@@ -47,10 +48,11 @@ angular.module('chattyWeather.weather', [])
       $scope.activity = data.activity[Math.floor(Math.random() * data.activity.length)];
       
       $scope.tips = "Want tips on the nearest" + " "+ $scope.activity;   
-
-      $scope.temp = data.temperature + " ℉";
+      $scope.temp = data.temperature.toFixed(1) + " ℉";
       $scope.city = data.timezone.split("/")[1].split("_").join(" ");
       $scope.time = timeNow();
+
+      $scope.mtaAlert = data.subwayInfo;
       
 
     });

@@ -25,40 +25,28 @@
 
       <div class="bubblesWrapper">
 
-        <div class="bubble">
-          <div class="phrases prop">
-          {{prop}}
-          </div>
-          <div class="subTitle">Props
-          </div>
+        <div class="bubble propBubble">
+          <div class="phrases">{{prop}}</div>
+          <div class="subTitle">Props</div>
         </div>
 
-        <div class="bubble">
-          <div class="phrases food">
-            {{food}}
-          </div>
-          <div class="subTitle">Foods
-          </div>
+        <div class="bubble foodBubble phrases">
+          <div class="phrases">{{food}}</div>
+          <div class="subTitle">Foods</div>
         </div>
 
-        <div class="bubble">
-          <div class="phrases activity">
-          <a  ng-click="getActivityTerm()"> {{activity}}
-          
+        <div class="bubble activityBubble phrases">
+          <div class="phrases"><a  ng-click="getActivityTerm()"> {{activity}}
             <div class="tips">{{ tips }}</div>
-          </a> 
-
-          </div>
-          <div class="subTitle">Activities
-          </div>
+          </a></div>
+          <div class="subTitle">Activities</div>
         </div>
 
-        <div class="bubble">
-          <div class="phrases transportation">
-            {{activity}}
+        <div class="bubble mtaBubble phrases">
+          <div class="mtaAlertBox">
+            <div ng-repeat="alert in mtaAlert" class="phrases">{{alert}}</div>
           </div>
-          <div class="subTitle">MTA alerts
-          </div>
+          <div class="subTitle">MTA alerts</div>
         </div>
 
       </div>

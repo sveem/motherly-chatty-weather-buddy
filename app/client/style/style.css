@@ -114,54 +114,71 @@ left: 48%;
   width: 85%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .bubble {
   margin: 0 10px;
   position: relative;
-  height:auto;
-  min-height:120px;
-  height:auto !important;/* for IE as it does not support min-height */
-  height:120px;
-  padding: 10px;
+  padding: 20px;
   background: rgba(255,255,255,0.3);
   -webkit-border-radius: 60px;
   -moz-border-radius: 60px;
   border-radius: 60px;
   box-shadow: 0px 3px 10px rgba(255,0,0,0.2);
+
+  width: 22%;
+  float: left;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .bubble:after 
 {
-content: '';
-position: absolute;
-border-style: solid;
-border-width: 10px 10px 0;
-border-color: rgba(255,255,255,0.3) transparent;
-display: block;
-width: 0;
-z-index: 1;
-bottom: -10px;
-left: 48%;
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 10px 10px 0;
+  border-color: rgba(255,255,255,0.3) transparent;
+  display: block;
+  width: 0;
+  z-index: 1;
+  bottom: -10px;
+  left: 48%;
 }
 
-.bubble {
-  width: 22%;
-  float: left;
-  text-align: center;
-  font-size: 1.3rem;
-  font-weight: 400;
+.propBubble {
+  height:100%;
+  min-height:120px; 
 }
-.phrases {
-  position: absolute;
-  height: auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
+.foodBubble {
+  height:100%;
+  min-height:120px; 
 }
+.activityBubble {
+  height:100%;
+  min-height:120px; 
+}
+.mtaBubble {
+  height:100%;
+  min-height:120px; 
+}
+.mtaAlertBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1rem;
+  text-align: left;
+}
+
 .subTitle {
   position: absolute;
-  top: 130%;
+  bottom: -75px;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90%;
@@ -206,7 +223,7 @@ left: 48%;
   position: absolute;
   top: 83%;
   left: 40%;
-  animation: sunanm 43200s infinite linear;
+  animation: sunanm 150s infinite linear;
   z-index: 2;
 }
 
