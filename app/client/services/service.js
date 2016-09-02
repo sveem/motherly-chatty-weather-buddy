@@ -47,6 +47,7 @@ angular.module('chattyWeather.service', [])
 
 .factory('Activities', function ($http, $location) {
 
+ 
   var getActivities = function(activity){
     return $http({
       method: 'POST', 
@@ -74,5 +75,5 @@ angular.module('chattyWeather.service', [])
     };
 
 
-})
 
+})
