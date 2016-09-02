@@ -13,4 +13,5 @@ app.use(cors());
 app.use(express.static(__dirname + '/../client'));
 
 app.use("/",router)
+
 app.listen(process.env.PORT || 3000);
