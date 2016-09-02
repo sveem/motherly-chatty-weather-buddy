@@ -4,7 +4,7 @@ $(document).ready(function() {
     var longitude = location.coords.longitude;
 
     $.ajax({
-      url: 'http://localhost:3000/api/weather',
+      url: 'https://chattyweather.herokuapp.com/api/weather',
       data: {latitude: latitude, longitude: longitude},
       success: success
     });
