@@ -17,13 +17,12 @@ var yelp = new Yelp({
 
 
 
-
 function getActivities (req,res){
+	console.log('ACTIVITY',  req.query)
 yelp.search({
-	    term: req.data, location: 'Manhattan', sort: 2, limit: 10 })
-console.log(req.data)
+    term: req.query.activity, location: 'Manhattan', sort: 2, limit: 10 })
 .then(function (data) {
-  console.log(typeof data.businesses);
+	console.log(data.businesses)
   res.send(data.businesses)
 })
 .catch(function (err) {

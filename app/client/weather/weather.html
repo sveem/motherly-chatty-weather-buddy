@@ -42,8 +42,11 @@
 
         <div class="bubble">
           <div class="phrases activity">
-          ng-click= "getYelpTerm('activity')"
-            {{activity}}
+          <a  ng-click="getActivityTerm()"> {{activity}}
+          
+            <div class="tips">{{ tips }}</div>
+          </a> 
+
           </div>
           <div class="subTitle">Activity
           </div>
@@ -63,9 +66,6 @@
 
   </div>
 </div>
-
-
-
 
 
 

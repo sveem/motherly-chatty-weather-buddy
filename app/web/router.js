@@ -9,6 +9,7 @@ router.get('/api/weather/', weatherController.getHourly, logicController.getWeat
 router.get('/api/transportation/', transportationController.getTransportEvents);
 router.get('/api/phrases/', phraseController.getPhrases);
 router.post('/api/phrases/', phraseController.addPhrase);
+
 router.get('/api/activities/', activityController.getActivities);	
 router.post('/api/activities/', activityController.getActivities);	
 
