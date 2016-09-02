@@ -1,24 +1,27 @@
+<div class="{{ weatherEvent }}">
 <div class="container">
+<div ng-controller = 'activityController'>
 
+	<h1> Activities  hiiii </h1>
 
-	<h1> Activities </h1>
-
-<li data-ng-repeat="business in data">
-                    {{business.name}} - {{business.mobile_url}}
-</li>
-	<li class='result' ng-model= 'data' ng-repeat='businesses in data' ng-show='show'>
-		<div class='name'> Name: {{business.name}} </div>
-		<div class='phone'> Phone : {{business.phone}}</div>
-		<div class='address'> Address: {{business.address}}</div>
-	</li>
-
+<h2>
+<ul ng-repeat='businesses in data'>
+<li> <img src="{{businesses.image_url}}"/>
+                    {{businesses.name}} :  {{businesses.phone}}	
+                    </li>
 </ul>
+</h2>
+
+
+
+
 <div class='error' ng-show='error'>
-	<h3> Sorry, no data matched your search. </h3>
-</div>
-
 </div>
 
 
+</div>
+
+
+</div>
 </div>
 
