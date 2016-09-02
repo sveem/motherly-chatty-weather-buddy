@@ -36,7 +36,6 @@ mta.status('subway').then(function (result) {
    res.json(allSubwayInfo);
    });
   }
- }
-
+}
 
 
