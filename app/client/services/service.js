@@ -46,22 +46,23 @@ angular.module('chattyWeather.service', [])
 
 
 .factory('Activities', function ($http, $location) {
+
   var getActivities = function(activity){
     $http({
       method: 'GET', 
      url: '/api/activities/',
      params: {activity:activity},
    }).         
-    success(function(data, status, headers, config) {
+    then(function (resp) {
       return resp.data;
-  }).
-    error(function(data, status, headers, config) {
-      console.log("error")
     });
   }
 
+    
+  
+
     return {
-      getActivities: getActivities
+      getAll: getAll
     };
 
 })
