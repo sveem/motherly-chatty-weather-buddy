@@ -24,9 +24,9 @@ mta.status('subway').then(function (result) {
 },
 
 getAllMtaData: function(req, res){
-var allSubwayInfo = [];
+  var allSubwayInfo = [];
 
-mta.status('subway').then(function (result) {
+  mta.status('subway').then(function (result) {
   for(var i = 0; i< result.length; i++) {
     var allLines = result[i].name;
     var everyStatus = result[i].status;
@@ -35,7 +35,6 @@ mta.status('subway').then(function (result) {
    } 
    // var allInfoObj = {allData: allSubwayInfo}
    // console.log(allInfoObj);
-   res.send(JSON.parse(allSubwayInfo));
    res.json(allSubwayInfo);
    });
   }
