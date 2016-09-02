@@ -26,16 +26,17 @@ mta.status('subway').then(function (result) {
 getAllMtaData: function(req, res){
   var allSubwayInfo = [];
 
-  mta.status('subway').then(function (result) {
+mta.status('subway').then(function (result) {
   for(var i = 0; i< result.length; i++) {
     var allLines = result[i].name;
     var everyStatus = result[i].status;
     var allInfo = allLines + " : " + everyStatus;
       allSubwayInfo.push(allInfo);
    } 
-   // var allInfoObj = {allData: allSubwayInfo}
-   // console.log(allInfoObj);
    res.json(allSubwayInfo);
    });
   }
  }
+
+
+

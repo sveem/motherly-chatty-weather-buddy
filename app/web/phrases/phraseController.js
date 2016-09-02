@@ -16,7 +16,13 @@ module.exports = {
       phrases.weatherEvent = req.body.weatherEvent;
       phrases.temperature = copyReq.temperatureNum;
       phrases.timezone = copyReq.timezone;
+<<<<<<< HEAD
       phrases.subwayInfo = req.body.subwayInfo;
+=======
+
+      phrases.subwayInfo = req.body.subwayInfo
+      console.log('Data sent: ', phrases)
+>>>>>>> Today
 
       res.json(phrases);
     });
@@ -50,6 +56,9 @@ function order(phrases) {
     if(phrases[i].type === "props") result.props.push(phrases[i].name);
     if(phrases[i].type === "phrases") result.phrases.push(phrases[i].name);
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> Today
   return result;
 }
