@@ -31,17 +31,17 @@ h1 {
   width: 85%;
   font-weight: 900;
   font-size: 6rem;
+  line-height: 1;
   text-align: center;
 }
 .mainBubble {
   margin: 0 auto;
   margin-top: 70px;
   position: relative;
-  width: 50%;
+  width: 57%;
   height: 400px;
   padding: 0px;
   background: rgba(255,255,255,0.3);
-  /*border: 1px solid white;*/
   -webkit-border-radius: 200px;
   -moz-border-radius: 200px;
   border-radius: 200px;
@@ -88,6 +88,7 @@ left: 48%;
 }
 .icon
 {
+  padding-top: 15px;
   padding-left: 3%;
   width: 18%;
 }
@@ -117,10 +118,12 @@ left: 48%;
 .bubble {
   margin: 0 10px;
   position: relative;
-  height: 120px;
+  height:auto;
+  min-height:120px;
+  height:auto !important;/* for IE as it does not support min-height */
+  height:120px;
   padding: 10px;
   background: rgba(255,255,255,0.3);
-  /*border: 1px solid white;*/
   -webkit-border-radius: 60px;
   -moz-border-radius: 60px;
   border-radius: 60px;
@@ -150,6 +153,7 @@ left: 48%;
 }
 .phrases {
   position: absolute;
+  height: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -194,7 +198,7 @@ left: 48%;
   to { background-position: 0 596px; }
 }
 
-#cleardayStar, #partly-cloudy-dayStar {
+#clear-dayStar, #partly-cloudy-dayStar {
   position: absolute;
   background-image: url('../assets/sun.png');
   width: 300px;
@@ -202,21 +206,22 @@ left: 48%;
   position: absolute;
   top: 83%;
   left: 40%;
-  animation: sunanm 50s infinite linear;
+  animation: sunanm 43200s infinite linear;
   z-index: 2;
 }
 
 
 @keyframes sunanm {
   from {
-    transform: rotate(0deg)
-               translate(-330%)
-               rotate(0deg);
+    transform: rotate(-150deg)
+               translateX(1000px)
+               rotate(150deg);
+              
   }
   to {
-    transform: rotate(360deg)
-               translate(-330%) 
-               rotate(-360deg);
+    transform: rotate(-30deg)
+               translateX(1000px) 
+               rotate(30deg);        
   }
 }
 #rainStar {
@@ -242,9 +247,7 @@ left: 48%;
   to {
     transform: rotate(-30deg)
                translateX(1000px) 
-               rotate(30deg);
-
-              
+               rotate(30deg);              
   }
 }
 /*
