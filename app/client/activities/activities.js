@@ -32,5 +32,3 @@ var initializeActivities = function () {
   initializeActivities()
 
 })
-
-

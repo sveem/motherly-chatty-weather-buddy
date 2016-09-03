@@ -76,5 +76,5 @@ angular.module('chattyWeather.service', [])
 
 
 
-})
 
+})
