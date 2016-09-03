@@ -12,7 +12,12 @@ $(document).ready(function() {
 }, false);
 
 function success(data) {
-  $('#temp').append(data.temperature + "F   " + data.weatherEvent.split("-").join(" "));
+  $('canvas').attr('id', data.weatherEvent);
+  var skycons = new Skycons({"color": "white"});
+  skycons.set(data.weatherEvent, data.weatherEvent);
+  skycons.play();
+
+  $('#temp').append(data.temperature + "\&deg;F   " + data.weatherEvent.split("-").join(" "));
 
   $('#phrase').append(data.phrases[Math.floor(Math.random() * data.phrases.length)]);
   $('#food').append(data.foods[Math.floor(Math.random() * data.foods.length)]);
