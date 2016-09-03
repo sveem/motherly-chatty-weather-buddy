@@ -22,7 +22,7 @@ function getActivities (req,res){
 yelp.search({
     term: req.query.activity, location: 'Manhattan', sort: 2, limit: 10 })
 .then(function (data) {
-	console.log(data.businesses)
+	// console.log(data.businesses)
   res.send(data.businesses)
 })
 .catch(function (err) {

@@ -13,6 +13,7 @@ angular.module('chattyWeather.weather', [])
   $scope.weatherEvent;
 
   $scope.getActivityTerm = function() {
+    console.log($scope.activity)
     Activities.getActivities($scope.activity)
      $location.path('/activities');
   };
