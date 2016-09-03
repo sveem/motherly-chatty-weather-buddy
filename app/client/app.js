@@ -14,7 +14,11 @@ angular.module('chattyWeather', [
       templateUrl: 'activities/activities.html',
       controller: 'activityController'
     })
-
+      .when('/food', {
+      templateUrl: 'food/food.html',
+      controller: 'foodController'
+    })
+    
     .otherwise({
       redirectTo: '/weather'
     });

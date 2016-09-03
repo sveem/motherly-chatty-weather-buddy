@@ -25,34 +25,13 @@ angular.module('chattyWeather.service', [])
 
 
 
-// .factory('Activities', function ($http, $location) {
-//   var getYelpTerm = function (activity) {
-//     $http({
-//       method: 'POST',
-//       url: '/api/activities',
-//       params: {activity:activity}
-//     })
-
-// .success(function(data){
-//         $location.path('/activities');
-//     });
-//   };
-
-//   return {
-//     getYelpTerm: getYelpTerm,
-//     getActivities: getActivities
-//   };
-// });
-
-
 .factory('Activities', function ($http, $location) {
 
- 
   var getActivities = function(activity){
     return $http({
       method: 'POST', 
      url: '/api/activities/',
-     params: {activity:activity},
+     params: {activity: activity.toString()},
    })         
    
   }
@@ -78,3 +57,36 @@ angular.module('chattyWeather.service', [])
 
 })
 
+
+
+.factory('Food', function ($http, $location) {
+
+  var getFoodPlaces = function(food){
+    return $http({
+      method: 'POST', 
+     url: '/api/food/',
+     params: {food: food.toString()},
+   })         
+   
+  }
+
+  var postFoodPlaces = function (){
+    return $http({
+      method: 'GET',
+      url: '/api/food/'
+    })
+    .then(function (resp) {
+      console.log(resp.data)
+      return resp.data;
+    });
+  }  
+  
+
+    return {
+      getFoodPlaces: getFoodPlaces,
+      postFoodPlaces:  postFoodPlaces
+    };
+
+
+
+})
