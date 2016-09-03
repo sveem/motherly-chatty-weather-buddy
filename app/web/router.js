@@ -17,7 +17,7 @@ router.post('/api/phrases/', phraseController.addPhrase);
 router.get('/api/activities/', activityController.getActivities);	
 router.post('/api/activities/', activityController.getActivities);
 
-
+router.get('/api/food/', foodController.getFoodPlaces);
 router.post('/api/food/', foodController.getFoodPlaces);
 
 module.exports = router
