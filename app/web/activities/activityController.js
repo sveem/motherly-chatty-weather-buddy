@@ -18,12 +18,12 @@ var yelp = new Yelp({
 
 
 function getActivities (req,res){
-	var YelpTerm = JSON.stringify(req.query.activity)
+	// var YelpTerm = JSON.stringify(req.query.activity)
 yelp.search({
-	console.log(YelpTerm)
-    term: YelpTerm, location: 'Manhattan', sort: 2, limit: 10 })
+    // term: YelpTerm, 
+    location: 'Manhattan', 
+    sort: 2, limit: 10 })
 .then(function (data) {
-	// console.log(data.businesses)
   res.send(data.businesses)
 })
 .catch(function (err) {
