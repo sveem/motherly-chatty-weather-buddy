@@ -10,6 +10,7 @@ body {
   color: white;
   font-size: 1rem;
   text-align: center;
+  margin: 0;
 }
 
 .title {
@@ -21,7 +22,8 @@ body {
 }
 
 .info {
-  margin-top: 10px;
+  font-weight: 100;
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,20 +34,45 @@ body {
 
 .mainBubble {
   margin: 0 auto;
-  position: relative;
-  width: 90%;
+  width: 80%;
   height: auto;
-  min-height: 100px;
+  min-height: 80px;
   padding: 17px;
   background: rgba(255,255,255,0.3);
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  border-radius: 50px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
   box-shadow: 0px 3px 5px rgba(255,0,0,0.2);
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+.bubble {
+  position: relative;
+  height: 0;
+  width: auto;
+  max-width: 80%;
+  float: left;
+  background: rgba(255,255,255,0.3);
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  box-shadow: 0px 2px 3px rgba(255,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bubble.foodBubble {
+  clear: both;
+  float: right;
+}
+.bubble.activityBubble {
+  clear: both;
+  margin-bottom: 20px;
+}
+
 
 #phrase {
   font-size: 2rem;

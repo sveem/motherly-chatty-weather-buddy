@@ -53,7 +53,7 @@ angular.module('chattyWeather.weather', [])
       $scope.temp = data.temperature.toFixed(1) + " ℉";
       $scope.city = data.timezone.split("/")[1].split("_").join(" ");
       $scope.time = timeNow();
-      console.log(data.subwayInfo);
+      // console.log(data.subwayInfo);
 
       $scope.mtaAlert = data.subwayInfo.length === 0 ? ["All Good!"] : data.subwayInfo;
       
