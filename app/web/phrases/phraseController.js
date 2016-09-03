@@ -27,7 +27,8 @@ module.exports = {
       name: phrase.name,
       temperature: phrase.temperature,
       weatherEvent: phrase.weatherEvent,
-      type: phrase.type
+      type: phrase.type,
+      keyword: phrase.keyword
     }
     Phrase.create(newPhrase, function (err, newPhrase) {
       if (err) return console.log(err);

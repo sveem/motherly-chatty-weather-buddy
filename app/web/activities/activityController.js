@@ -1,10 +1,10 @@
 var router = require("express").Router();
 var cors = require("cors");
-var phraseController = require('../phrases/phraseController.js');
+// var phrases = require('./phrases/phraseController.js');
 var request = require("request");
 var express = require('express')
 var app = express();
-var qs = require('querystring');  
+
 var Yelp = require('yelp');
  
 var yelp = new Yelp({
@@ -14,6 +14,7 @@ var yelp = new Yelp({
   token_secret: "bAvERieQodYWGQk3aoWC8fT3lJ0",
 });
  
+
 
 
 
@@ -28,11 +29,9 @@ var yelp = new Yelp({
 // }
 
 function getActivities (req,res){
-test= qs.stringify(req.query.activity)
-	console.log(test)
 yelp.search({
     // term: qs.stringify(req.body.activity),
-    // term: test,
+    term: req.query.activity,
     location: 'Manhattan', 
     sort: 2, 
     limit: 10 })

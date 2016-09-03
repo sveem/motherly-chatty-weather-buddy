@@ -1,4 +1,4 @@
-angular.module('chattyWeather.activities', [])
+angular.module('chattyWeather.food', [])
 
 .controller('foodController', function($scope, $http, Food) {
 

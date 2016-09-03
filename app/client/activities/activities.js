@@ -1,6 +1,6 @@
 angular.module('chattyWeather.activities', [])
 
-.controller('activityController', function($scope, $http, Activities) {
+.controller('activitiesController', function($scope, $http, Activities) {
 
   $scope.data;
 // console.log(data)

@@ -20,7 +20,4 @@ router.post('/api/activities/', activityController.getActivities);
 
 router.post('/api/food/', foodController.getFoodPlaces);
 
-// router.post('/api/activities/', activityController.getYelpTerm);		
-// router.get('/api/activities/', activityController.getYelpTerm);
-
 module.exports = router
