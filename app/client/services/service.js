@@ -26,35 +26,67 @@ angular.module('chattyWeather.service', [])
 
 
 .factory('Activities', function ($http, $location) {
-  var getYelpTerm = function (activity) {
-    $http({
-      method: 'POST',
-      url: '/api/activities',
-      params: {activity:activity}
-    })
-    // .then(function (resp) {
-    //   return resp.data.business;
-    // });
-.success(function(data){
-        $location.path('/activities');
-    });
-  };
 
+  var getActivities = function(activity){
+    return $http({
+      method: 'POST', 
+     url: '/api/activities/',
+     params: {activity: activity.toString()},
+   })         
+   
+  }
 
-  var getActivities = function () {
-    return  $http({
+  var postActivities = function (){
+    return $http({
       method: 'GET',
-      url: '/api/activities/',
-      data: data
+      url: '/api/activities/'
     })
     .then(function (resp) {
-      return resp.data.business;
+      console.log(resp.data)
+      return resp.data;
     });
-  };
+  }  
+  
 
-  return {
-    getYelpTerm: getYelpTerm,
-    getActivities: getActivities
-  };
-});
+    return {
+      getActivities: getActivities,
+      postActivities:  postActivities
+    };
 
+
+
+})
+
+
+
+.factory('Food', function ($http, $location) {
+
+  var getFoodPlaces = function(food){
+    return $http({
+      method: 'POST', 
+     url: '/api/food/',
+     params: {food: food.toString()},
+   })         
+   
+  }
+
+  var postFoodPlaces = function (){
+    return $http({
+      method: 'GET',
+      url: '/api/food/'
+    })
+    .then(function (resp) {
+      console.log(resp.data)
+      return resp.data;
+    });
+  }  
+  
+
+    return {
+      getFoodPlaces: getFoodPlaces,
+      postFoodPlaces:  postFoodPlaces
+    };
+
+
+
+})

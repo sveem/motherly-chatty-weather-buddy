@@ -1,8 +1,34 @@
-angular.module('chattyWeather.weather', [])
+angular.module('chattyWeather.activities', [])
 
-.controller('MainCtrl', ['$scope', 'MyYelpAPI', function($scope, MyYelpAPI) {
-                $scope.businesses = [];
-                MyYelpAPI.retrieveYelp('', function(data) {
-                    $scope.businesses = data.businesses;
+.controller('activitiesController', function($scope, $http, Activities) {
 
-                });
+  $scope.data;
+// console.log(data)
+
+var initializeActivities = function () {
+	Activities.postActivities()
+	.then(function (activities) {
+	         $scope.data = activities;
+	         // for(i=0;i< activities.length;i++){
+	         // 	$scope.data.push(activities[i])
+	         // 	console.log(activities[0].name)
+	         // 	$scope.data[i] = business;
+
+	         // 	var business = {}
+	         // 	$scope.name = activities[i].name;
+	         // 	$scope.phone = activities[i].phone
+	         // }
+
+	     })
+	.catch(function (error) {
+		console.error(error);
+	});
+
+
+};
+
+  initializeActivities()
+
+})
+
+

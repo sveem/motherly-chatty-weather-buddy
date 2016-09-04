@@ -31,17 +31,22 @@
           <div class="subTitle">Props</div>
         </div>
 
-        <div class="bubble foodBubble phrases">
-          <div class="phrases">{{food}}</div>
+        <div class="bubble foodBubble phrases"
+        ng-click="getFoodTerm()">
+          <div class="phrases">{{food}}
+            <div class="tips">{{ tips }}</div>
+          </div>
           <div class="subTitle">Foods</div>
         </div>
 
-        <div class="bubble activityBubble phrases">
-          <div class="phrases"><a  ng-click="getActivityTerm()"> {{activity}}
+
+        <div class="bubble activityBubble phrases" ng-click="getActivityTerm()">
+          <div class="phrases" > {{activity}}
             <div class="tips">{{ tips }}</div>
-          </a></div>
+          </div>
           <div class="subTitle">Activities</div>
         </div>
+
 
         <div class="bubble mtaBubble phrases">
           <div class="mtaAlertBox">

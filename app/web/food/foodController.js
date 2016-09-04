@@ -1,10 +1,10 @@
 var router = require("express").Router();
 var cors = require("cors");
-// var phrases = require('./phrases/phraseController.js');
+var phraseController = require('../phrases/phraseController.js');
 var request = require("request");
 var express = require('express')
 var app = express();
-
+var qs = require('querystring');  
 var Yelp = require('yelp');
  
 var yelp = new Yelp({
@@ -16,22 +16,12 @@ var yelp = new Yelp({
  
 
 
-
-
-// PersonModel.find({$where : 'this.favouriteFoods.indexOf("sushi") != -1'});
-// function getYelpTerm(req,res,next){
-// 	      console.log("herrreee")
-//       var test =  req.query.activity.split(" ")
-//     // Phrase.find({})
-//     // .where('name').equals(req.query.activity)
-
-
-// }
-
-function getActivities (req,res){
+function getFoodPlaces (req,res){
+test= qs.stringify(req.query.food)
+	console.log(test)
 yelp.search({
-    // term: qs.stringify(req.body.activity),
-    term: req.query.activity,
+    // term: qs.stringify(req.body.food),
+    term: test,
     location: 'Manhattan', 
     sort: 2, 
     limit: 10 })
@@ -46,18 +36,18 @@ yelp.search({
 
 
 module.exports = {
-getActivities: getActivities
+getFoodPlaces: getFoodPlaces
 }
 
 // exports.yelp = function (req, res) {
-// 	var activityResults, diningResults, results={};
+// 	var foodResults, diningResults, results={};
 // 	yelp.search({
-// 		term: req.query.activity,
+// 		term: req.query.food,
 // 		location: 'Manhattan', 
 //         sort: 2, 
 //         limit: 10},
-// 		  function(error, activityData) {
-// 			// results = {activity:activityData}
-// 			res.json(activityData.businesses);
+// 		  function(error, foodData) {
+// 			// results = {food:foodData}
+// 			res.json(foodData.businesses);
 // 		})
 // 	}
