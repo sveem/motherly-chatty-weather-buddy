@@ -19,7 +19,7 @@ h1 {
 .title {
   font-family: 'Lobster', cursive;
   font-size: 3.5rem;
-  padding-top: 70px;
+  padding-top: 100px;
   color: white;
   text-align: center;
 }
@@ -31,7 +31,7 @@ h1 {
   width: 85%;
   font-weight: 900;
   font-size: 6rem;
-  line-height: 1;
+  line-height: 1.1;
   text-align: center;
 }
 .mainBubble {
@@ -39,12 +39,12 @@ h1 {
   margin-top: 70px;
   position: relative;
   width: 57%;
-  height: 400px;
+  height: 380px;
   padding: 0px;
   background: rgba(255,255,255,0.3);
-  -webkit-border-radius: 200px;
-  -moz-border-radius: 200px;
-  border-radius: 200px;
+  -webkit-border-radius: 190px;
+  -moz-border-radius: 190px;
+  border-radius: 190px;
   box-shadow: 0px 5px 25px rgba(255,0,0,0.2);
 }
 
@@ -129,7 +129,7 @@ left: 48%;
   width: 22%;
   float: left;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   line-height: 1.4;
   font-weight: 400;
   display: flex;
@@ -143,13 +143,13 @@ left: 48%;
   content: '';
   position: absolute;
   border-style: solid;
-  border-width: 10px 10px 0;
+  border-width: 12px 12px 0;
   border-color: rgba(255,255,255,0.3) transparent;
   display: block;
   width: 0;
   z-index: 1;
-  bottom: -10px;
-  left: 48%;
+  bottom: -12px;
+  left: 45%;
 }
 
 .propBubble {
@@ -172,13 +172,13 @@ left: 48%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  font-size: 1rem;
   text-align: left;
+  font-size: 1.2rem;
 }
 
 .subTitle {
   position: absolute;
-  bottom: -75px;
+  bottom: -80px;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90%;
@@ -187,13 +187,38 @@ left: 48%;
   text-shadow: 1px 1px 2px rgba(255,0,0,0.2);
 }
 
-.clear-day, .partly-cloudy-day { 
-  background-image: url('../assets/clouds_1.png');
+/* background Animations */ 
+
+.clear-day, .partly-cloudy-day, .clear-night, .partly-cloudy-night, .cloudy, .rain, .fog, .snow, .sleet { 
   background-position: 0px 0px;
   background-repeat: repeat;
   height: 100%;
 
   animation: bganimCloud 50s linear infinite;
+}
+
+.clear-day { 
+  background-image: url('../assets/bg_clear_day.png');
+}
+.clear-night { 
+  background-image: url('../assets/bg_clear_night.png');
+}
+.partly-cloudy-day { 
+  background-image: url('../assets/bg_partly_cloudy_day.png');
+}
+.partly-cloudy-night { 
+  background-image: url('../assets/bg_partly_cloudy_night.png');
+}
+.cloudy { 
+  background-image: url('../assets/bg_cloudy.png');
+}
+.fog { 
+  background-image: url('../assets/bg_fog.png');
+}
+.windy {
+  background-image: url('../assets/bg_cloudy.png');
+  height: 100%;
+  animation: bganimCloud 7s linear infinite;
 }
 
 @keyframes bganimCloud {
@@ -202,12 +227,16 @@ left: 48%;
 }
 
 .rain { 
-  background-image: url('../assets/rain.png');
-  background-position: 0px 0px;
-  background-repeat: repeat;
+  background-image: url('../assets/bg_rain.png');
   height: 100%;
 
-  animation: bganimRain 2s linear infinite;
+  animation: bganimRain 1.5s linear infinite;
+}
+.snow, .sleet { 
+  background-image: url('../assets/bg_snow.png');
+  height: 100%;
+
+  animation: bganimRain 15s linear infinite;
 }
 
 @keyframes bganimRain {
@@ -215,7 +244,10 @@ left: 48%;
   to { background-position: 0 596px; }
 }
 
-#clear-dayStar, #partly-cloudy-dayStar {
+
+/* Time indicator animation */ 
+
+.clear-day-Star, .partly-cloudy-day-Star {
   position: absolute;
   background-image: url('../assets/sun.png');
   width: 300px;
@@ -224,7 +256,7 @@ left: 48%;
   top: 500px;
   /*left: 40%;
   animation: sunanm 43200s infinite linear;*/
-  z-index: 2  ;
+  z-index: 1  ;
 }
 
 
@@ -241,9 +273,9 @@ left: 48%;
                rotate(30deg);        
   }
 }
-#rainStar {
+.rain-Star {
   position: absolute;
-  background-image: url('../assets/rain_sun.png');
+  background-image: url('../assets/rain.png');
   width: 300px;
   height: 300px;
   position: absolute;
@@ -280,6 +312,10 @@ left: 48%;
   z-index: 2;
 
   /*animation: moonanm 40s linear infinite;*/
+}
+.rain-Star.positionMoon, .cloudy-Star.positionMoon, .rain-Star.positionMoon, 
+.fog-Star.positionMoon, .snow-Star.positionMoon, .sleet-Star.positionMoon {
+  background-image: url('../assets/rain.png');
 }
 
 /*

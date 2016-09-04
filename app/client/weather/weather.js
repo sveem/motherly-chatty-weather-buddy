@@ -53,8 +53,9 @@ angular.module('chattyWeather.weather', [])
       $scope.temp = data.temperature.toFixed(1) + " ℉";
       $scope.city = data.timezone.split("/")[1].split("_").join(" ");
       $scope.time = timeNow();
+      // console.log(data.subwayInfo);
 
-      $scope.mtaAlert = data.subwayInfo;
+      $scope.mtaAlert = data.subwayInfo.length === 0 ? ["All Good!"] : data.subwayInfo;
       
     });
   }
@@ -62,6 +63,7 @@ angular.module('chattyWeather.weather', [])
   var positionSunMoon = function() {
     var d = new Date();
     var min = d.getHours() * 60 +  d.getMinutes() - (7 * 60);
+    //min = 360;
     var rad = 2 * Math.PI * min / 1440
     var top = Math.sin(Math.PI - rad) * (window.innerHeight) 
     var left = Math.cos(Math.PI - rad) * (window.innerHeight)
