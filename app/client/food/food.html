@@ -1,7 +1,7 @@
 <div class="{{ weatherEvent }}">
 	<div class="container">
-		<div ng-controller = 'activitiesController'>
-			<h1> Activities  hiiii </h1>
+		<div ng-controller = 'foodController'>
+			<h1> Food Nearby </h1>
 			<h2>
 				<ul ng-repeat='businesses in data'>
 					<li> 
@@ -12,7 +12,8 @@
 					</li>
 				</ul>
 			</h2>
+			<div class='error' ng-show='error'>
+			</div>
 		</div>
 	</div>
 </div>
-

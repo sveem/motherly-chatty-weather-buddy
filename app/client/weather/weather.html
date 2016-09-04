@@ -1,6 +1,6 @@
-<div id="{{ weatherEvent }}Star" class="positionSun"></div>
-<div class="positionMoon"></div>
-<div class="{{ weatherEvent }}">
+<div class="{{ weatherEvent }}-Star positionSun"></div>
+<div class="{{ weatherEvent }}-Star positionMoon"></div>
+<div class="{{ weatherEvent }}"> <!-- background animations-->
   <h1 class="title">&mdash; Chatty Weather &mdash;</h1>
   <div class="wrapper">
 
@@ -31,17 +31,22 @@
           <div class="subTitle">Props</div>
         </div>
 
-        <div class="bubble foodBubble phrases">
-          <div class="phrases">{{food}}</div>
+        <div class="bubble foodBubble phrases"
+        ng-click="getFoodTerm()">
+          <div class="phrases">{{food}}
+            <div class="foodTips"><i>{{ foodTips }}</i></div>
+          </div>
           <div class="subTitle">Foods</div>
         </div>
 
+
         <div class="bubble activityBubble phrases" ng-click="getActivityTerm()">
           <div class="phrases" > {{activity}}
-            <div class="tips">{{ tips }}</div>
+            <div class="tips"><i>{{ tips }}</i></div>
           </div>
           <div class="subTitle">Activities</div>
         </div>
+
 
         <div class="bubble mtaBubble phrases">
           <div class="mtaAlertBox">

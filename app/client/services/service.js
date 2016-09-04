@@ -25,41 +25,53 @@ angular.module('chattyWeather.service', [])
 
 
 
-// .factory('Activities', function ($http, $location) {
-//   var getYelpTerm = function (activity) {
-//     $http({
-//       method: 'POST',
-//       url: '/api/activities',
-//       params: {activity:activity}
-//     })
-
-// .success(function(data){
-//         $location.path('/activities');
-//     });
-//   };
-
-//   return {
-//     getYelpTerm: getYelpTerm,
-//     getActivities: getActivities
-//   };
-// });
-
-
 .factory('Activities', function ($http, $location) {
+    var getActivities = function(activity){
+    return $http({
+      method: 'GET', 
+      url: '/api/activities/',
+      params: {activity: activity},
+   })
+   .then(function (resp) {
+      return resp.data;
+    });
+  }  
+      
+  
+  // var postActivities = function (){
+  //   return $http({
+  //     method: 'GET',
+  //     url: '/api/activities/'
+  //   })
+  //   .then(function (resp) {
+  //     console.log(resp.data)
+  //     return resp.data;
+  //   });
+  // }  
+  
+    return {
+      getActivities: getActivities,
+      // postActivities:  postActivities
+    };
 
-  var getActivities = function(activity){
+})
+
+
+.factory('Food', function ($http, $location) {
+
+  var getFoodPlaces = function(food){
     return $http({
       method: 'POST', 
-     url: '/api/activities/',
-     params: {activity:activity},
+     url: '/api/food/',
+     params: {food: food.toString()},
    })         
    
   }
 
-  var postActivities = function (){
+  var postFoodPlaces = function (){
     return $http({
       method: 'GET',
-      url: '/api/activities/'
+      url: '/api/food/'
     })
     .then(function (resp) {
       console.log(resp.data)
@@ -69,11 +81,8 @@ angular.module('chattyWeather.service', [])
   
 
     return {
-      getActivities: getActivities,
-      postActivities:  postActivities
+      getFoodPlaces: getFoodPlaces,
+      postFoodPlaces:  postFoodPlaces
     };
-
-
-
 
 })

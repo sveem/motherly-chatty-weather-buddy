@@ -1,6 +1,6 @@
 angular.module('chattyWeather.weather', [])
 
-.controller('WeatherController', function($scope, goGet, $http, $location, Activities) {
+.controller('WeatherController', function($scope, goGet, $http, $location, Activities, Food) {
 	var weatherData;
   $scope.phrase = ". . loading . .";
   $scope.food;
@@ -12,11 +12,19 @@ angular.module('chattyWeather.weather', [])
   $scope.time;
   $scope.weatherEvent;
 
+  $scope.getFoodTerm = function() {
+    Food.getFoodPlaces($scope.food)
+     $location.path('/food');
+  };
+
+
   $scope.getActivityTerm = function() {
     console.log($scope.activity)
     Activities.getActivities($scope.activity)
      $location.path('/activities');
+    return $scope.activity
   };
+
 
   function timeNow() {
     var d = new Date(),
@@ -48,15 +56,19 @@ angular.module('chattyWeather.weather', [])
       skycons.play();
       $scope.phrase = data.phrases[Math.floor(Math.random() * data.phrases.length)];
       $scope.food = data.foods[Math.floor(Math.random() * data.foods.length)];
+         $scope.foodTips = "Find Nearest"
+
       $scope.prop = data.props[Math.floor(Math.random() * data.props.length)];
-      $scope.activity = data.activity[Math.floor(Math.random() * data.activity.length)];
-      
-      $scope.tips = "Want tips on the nearest" + " "+ $scope.activity;   
+
+      $scope.activity = data.activity[Math.floor(Math.random() * data.activity.length)]; 
+      $scope.tips = "Find Nearest";
+
       $scope.temp = data.temperature.toFixed(1) + " ℉";
       $scope.city = data.timezone.split("/")[1].split("_").join(" ");
       $scope.time = timeNow();
+      // console.log(data.subwayInfo);
 
-      $scope.mtaAlert = data.subwayInfo;
+      $scope.mtaAlert = data.subwayInfo.length === 0 ? ["All Good!"] : data.subwayInfo;
       
     });
   }
@@ -64,6 +76,7 @@ angular.module('chattyWeather.weather', [])
   var positionSunMoon = function() {
     var d = new Date();
     var min = d.getHours() * 60 +  d.getMinutes() - (7 * 60);
+    //min = 360;
     var rad = 2 * Math.PI * min / 1440
     var top = Math.sin(Math.PI - rad) * (window.innerHeight) 
     var left = Math.cos(Math.PI - rad) * (window.innerHeight)

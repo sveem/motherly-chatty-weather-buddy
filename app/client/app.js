@@ -2,6 +2,7 @@ angular.module('chattyWeather', [
   'chattyWeather.weather',
   'chattyWeather.service',
   'chattyWeather.activities',
+  'chattyWeather.food',
   'ngRoute'
   ])
 .config(function($routeProvider, $httpProvider) {
@@ -12,10 +13,16 @@ angular.module('chattyWeather', [
 	  })
       .when('/activities', {
       templateUrl: 'activities/activities.html',
-      controller: 'activityController'
+      controller: 'activitiesController'
     })
-
+      .when('/food', {
+      templateUrl: 'food/food.html',
+      controller: 'foodController'
+    })
+    
     .otherwise({
       redirectTo: '/weather'
     });
 })
+
+

@@ -3,19 +3,36 @@
   <head>
     <title>Chatty Weather</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Raleway:100,400,900" rel="stylesheet">
     <script src="lib/jquery-3.1.0.min.js"></script>
     <script src="popup.js"></script>
+    <script src="skycons.js"></script>
   </head>
   <body>
-    <h1>Chatty Weather</h1>
-    <div id="temp"></div>
 
-    <br>
+    <h1 class="title">&mdash; Chatty Weather &mdash; </h1>
+    
+    
+    <div class="mainBubble">
+      <div id="phrase">. . Loading . .</div>
+    </div>
 
-    <div id="phrase"></div>
-    <div id="prop"></div>
-    <div id="food"></div>
-    <div id="activity"></div>
-    <div id="page"></div>
+    <div class="info">
+      <canvas width="25" height="25"></canvas> 
+      <div id="temp"></div>
+    </div>
+
+    <div class="bubble propBubble">
+      <div id="prop"></div>
+    </div>
+
+    <div class="bubble foodBubble">
+      <div id="food"></div>
+    </div>
+
+    <div class="bubble activityBubble">
+      <div id="activity"></div>
+    </div>
+    
   </body>
 </html>
