@@ -20,7 +20,7 @@ angular.module('chattyWeather.weather', [])
 
 
   $scope.getActivityTerm = function() {
-    $window.localStorage.setItem('currentFood', $scope.activity[1]);
+    $window.localStorage.setItem('currentActivity', $scope.activity[1]);
     $location.path('/activities');
   };
     
