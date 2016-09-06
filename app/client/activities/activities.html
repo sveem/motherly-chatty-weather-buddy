@@ -315,13 +315,14 @@ z-index: 10
   						<td class="cell"><table class="inner">
   						  <tr><td colspan="2" class="leftColRow titleCell">
   						<a href="{{business.url}}" target="_blank" class="bizTitle">
-  						<h2 ng-bind="business.name> </h2>
+  						<h2 ng-bind="business.name"> </h2>
   							</a></td></tr><tr><td> 
   							<a href="{{business.url}}" target="_blank">
   								<img class="thumb" src="{{businesses.image_url}}" />
   				  		</a>
   							<img src="{{businesses.rating_img_url}}"/>
-  							</td><td style=""> <div ng-bind="businesses.snippet_text" class="snippet"></div><div ng-bind="businesses.location.neighborhoods[0]" class="location"> 
+  							</td><td style=""> <div ng-bind="businesses.snippet_text" class="snippet"></div>
+                <div ng-bind="businesses.location.neighborhoods[0]" class="location"> 
   							<a href="tel://{{businesses.phone}}" target="_blank" ng-bind="businesses.phone | tel"></a></div></td></tr></table></td></tr></tbody></table>
   						</div><div class="col-xs-19">
   					</div></div>
