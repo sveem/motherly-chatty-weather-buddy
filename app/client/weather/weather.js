@@ -37,7 +37,6 @@ angular.module('chattyWeather.weather', [])
   var init = function () {
     goGet.getWeatherData()
       .then(function (data) {
-        console.log(data);
         weatherData = data.data;
         display(weatherData);
         setInterval(display.bind(null, weatherData), 5000);
@@ -75,12 +74,10 @@ angular.module('chattyWeather.weather', [])
   
   var positionSunMoon = function() {
     var d = new Date();
-    var min = d.getHours() * 60 +  d.getMinutes() - (6 * 60);
-    //min = 360;
-    var rad = 2 * Math.PI * min / 1440
+    var minutes = d.getHours() * 60 +  d.getMinutes() - (6 * 60);
+    var rad = 2 * Math.PI * minutes / 1440
     var top = Math.sin(Math.PI - rad) * (window.innerHeight) 
     var left = Math.cos(Math.PI - rad) * (window.innerHeight)
-    console.log(top, left)
 
     if(document.getElementsByClassName("positionSun")[0] !== undefined) {
       var sunStyle = document.getElementsByClassName("positionSun")[0].style;
@@ -92,7 +89,6 @@ angular.module('chattyWeather.weather', [])
       moonStyle.left = (window.innerWidth / 2) - 150 - left + "px";
    }
   }
-
 
   init();
 })

@@ -9,7 +9,6 @@ angular.module('chattyWeather.service', [])
       $window.navigator.geolocation.getCurrentPosition(function(location) {
         var latitude = location.coords.latitude;
         var longitude = location.coords.longitude;
-        console.log('here', latitude, longitude);
         resolve($http({
           method: 'GET',
           url: '/api/weather',
