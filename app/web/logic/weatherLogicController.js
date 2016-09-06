@@ -13,10 +13,7 @@ module.exports = {
       avgTemperature += hourlyData[i].temperature / 12;
     }
     temperature = util.fahrenheitToString(avgTemperature);
-
-    // console.log(temperature);
     console.log(weatherEvent);
-
     var timezone = req.body.timezone;
 
     req.body = {
@@ -25,10 +22,7 @@ module.exports = {
       temperature: temperature, 
       weatherEvent: weatherEvent
     };
-
     req.query = req.body;
-
-    next();
-    //res.end(JSON.stringify(req.body));
+    next();  
   }
 };
