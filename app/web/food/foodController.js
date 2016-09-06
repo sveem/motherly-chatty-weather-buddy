@@ -24,8 +24,7 @@ function getFoodPlaces(req,res) {
     sort: 2, 
     limit: 10 })
   .then(function(data) {
-  res.send(data.businesses);
-    }
+    res.send(data.businesses);
   })
   .catch(function(err) {
   console.error(err);
