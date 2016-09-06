@@ -13,6 +13,7 @@ body {
   margin: 0;
 }
 
+
 .title {
   font-family: 'Lobster', cursive;
   font-size: 1.5rem;
@@ -46,6 +47,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
 .bubble {
