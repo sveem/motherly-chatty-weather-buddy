@@ -9,7 +9,13 @@ html, body {margin: 0;
   color: white;
   text-shadow: 1px 1px 5px rgba(255,0,0,0.2);
   background-color: #1382e9;
-  }
+
+  -webkit-user-select: none;  
+  -moz-user-select: none;     
+  -ms-user-select: none;      
+  user-select: none;
+
+}
 .box {
   height: 100%;
 }

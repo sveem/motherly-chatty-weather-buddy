@@ -14,11 +14,9 @@ var initializeFood = function () {
     .catch(function (error) {
         console.error(error);
     });
-
-
 };
 
-  initializeFood()
+initializeFood();
 
 })
 
