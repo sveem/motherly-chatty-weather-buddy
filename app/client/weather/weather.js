@@ -58,12 +58,9 @@ angular.module('chattyWeather.weather', [])
       skycons.play();
       $scope.phrase = data.phrases[Math.floor(Math.random() * data.phrases.length)];
       $scope.food = data.foods[Math.floor(Math.random() * data.foods.length)].split(":");
-      $scope.foodTips = "Find Nearest"
 
       $scope.prop = data.props[Math.floor(Math.random() * data.props.length)];
-      var activity = data.activity[Math.floor(Math.random() * data.activity.length)].split(":");
-
-      $scope.tips = "Find Nearest";
+      $scope.activity = data.activity[Math.floor(Math.random() * data.activity.length)].split(":");
 
       $scope.temp = data.temperature.toFixed(1) + " ℉";
       $scope.city = data.timezone.split("/")[1].split("_").join(" ");
