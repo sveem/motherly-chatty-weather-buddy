@@ -5,15 +5,6 @@ var request = require("request");
 var express = require('express')
 var app = express();
 var queryString = require('querystring');
-// var Yelp = require('yelp');
- 
-// var yelp = new Yelp({
-//   consumer_key: "jyK0pX1w36_zOyRDBCQGPA",
-//   consumer_secret: "fldLTHhsFY4tr_rl8wDwcF_LGaU",
-//   token: "SV6V9Vm7pndVNtbPzxjF1uYmdeftjZyX",
-//   token_secret: "an2Idmg4tkrkcj93rTL6tJLFT74"
-// });
-  
 
 var yelp = require("node-yelp");
 
