@@ -2,11 +2,12 @@ var router = require("express").Router();
 var cors = require("cors");
 var phraseController = require('../phrases/phraseController.js');
 var request = require("request");
-var express = require('express')
-var app = express();
+var express = require('express');
 var qs = require('querystring');  
-
 var yelp = require("node-yelp");
+
+var app = express();
+
 var client = yelp.createClient({
   oauth: {
   consumer_key: "jyK0pX1w36_zOyRDBCQGPA",
@@ -16,23 +17,20 @@ var client = yelp.createClient({
   }
 });
 
-
-
-function getFoodPlaces (req,res){
-client.search({
+function getFoodPlaces(req,res) {
+  client.search({
     term: req.body.food,
-    location: 'Manhattan', 
+    location:'Manhattan', 
     sort: 2, 
     limit: 10 })
-.then(function (data) {
-  res.send(data.businesses)
-})
-.catch(function (err) {
+  .then(function(data) {
+  res.send(data.businesses);
+    }
+  })
+  .catch(function(err) {
   console.error(err);
-});
- 	
+  });
 }
-
 
 module.exports = {
 getFoodPlaces: getFoodPlaces
