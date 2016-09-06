@@ -61,7 +61,7 @@ angular.module('chattyWeather.weather', [])
       $scope.foodTips = "Find Nearest"
 
       $scope.prop = data.props[Math.floor(Math.random() * data.props.length)];
-      var activity = data.activity[Math.floor(Math.random() * data.activity.length)].split(":");
+      $scope.activity = data.activity[Math.floor(Math.random() * data.activity.length)].split(":");
 
       $scope.tips = "Find Nearest";
 
