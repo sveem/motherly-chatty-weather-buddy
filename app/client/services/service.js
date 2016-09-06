@@ -13,9 +13,8 @@ angular.module('chattyWeather.service', [])
           method: 'GET',
           url: '/api/weather',
           params: {latitude: latitude, longitude: longitude}
-          // params: {latitude: 51.5, longitude: 0} // London
-          // params: {latitude: 34, longitude: 118} // Beijing
-
+           // params: {latitude: 51.5, longitude: 0} // London
+          // params: {latitude: 34, longitude: 118} // Shanghai
 
         }));
       });    

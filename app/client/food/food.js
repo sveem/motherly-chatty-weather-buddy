@@ -8,16 +8,14 @@ angular.module('chattyWeather.food', [])
 var initializeFood = function () {
 	Food.postFoodPlaces()
 	.then(function (foodPlaces) {
-	         $scope.data = foodPlaces;
-	     })
+	  $scope.data = foodPlaces;
+	})
 	.catch(function (error) {
 		console.error(error);
 	});
-
-
 };
 
-  initializeFood()
+initializeFood();
 
 })
 

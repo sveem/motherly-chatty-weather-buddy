@@ -14,10 +14,9 @@ angular.module('chattyWeather.weather', [])
 
 
   $scope.getFoodTerm = function() {
-    Food.postFoodPlaces($scope.food[1])
-        console.log($scope.food[1])
-     $location.path('/food');
-    return $scope.food[1]
+    Food.postFoodPlaces($scope.food[1]);
+    console.log($scope.food[1]);
+    $location.path('/food');
   };
 
 
