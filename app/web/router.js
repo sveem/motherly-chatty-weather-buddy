@@ -6,10 +6,9 @@ var logicController = require('./logic/weatherLogicController');
 var activityController = require('./activities/activityController');
 var foodController = require('./food/foodController');
 
-
 router.get('/api/weather/', weatherController.getHourly, logicController.getWeatherPhrases, serviceAlerts.mtaInfo, phraseController.getPhrases);
 
-router.get('/api/transportation/', serviceAlerts.getAllMtaData ); 
+router.get('/api/transportation/', serviceAlerts.getAllMtaData); 
 
 router.get('/api/phrases/', phraseController.getPhrases);
 router.post('/api/phrases/', phraseController.addPhrase);
@@ -20,4 +19,4 @@ router.post('/api/activities/', activityController.getActivities);
 router.get('/api/food/', foodController.getFoodPlaces);
 router.post('/api/food/', foodController.getFoodPlaces);
 
-module.exports = router
+module.exports = router;
