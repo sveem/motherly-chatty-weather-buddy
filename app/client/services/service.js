@@ -53,9 +53,9 @@ angular.module('chattyWeather.service', [])
 .factory('Food', function ($http, $location, $window) {
   var postFoodPlaces = function(food){
     if(food === undefined) {
-      food = $window.localStorage.getItem('currentActivity');
+      food = $window.localStorage.getItem('currentFood');
     } else {
-      $window.localStorage.setItem('currentActivity', food);
+      $window.localStorage.setItem('currentFood', food);
     }
     return $http({
       method: 'POST', 

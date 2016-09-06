@@ -39,7 +39,7 @@ function display(data) {
   $('#temp').html(data.temperature + "\&deg;F   " + data.weatherEvent.split("-").join(" "));
 
   $('#phrase').html(data.phrases[Math.floor(Math.random() * data.phrases.length)]);
-  $('#food').html(data.foods[Math.floor(Math.random() * data.foods.length)]);
+  $('#food').html(data.foods[Math.floor(Math.random() * data.foods.length)].split(':')[0]);
   $('#prop').html(data.props[Math.floor(Math.random() * data.props.length)]);
-  $('#activity').html(data.activity[Math.floor(Math.random() * data.activity.length)]);
+  $('#activity').html(data.activity[Math.floor(Math.random() * data.activity.length)].split(':')[0]);
 }
