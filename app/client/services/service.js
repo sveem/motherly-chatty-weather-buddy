@@ -33,12 +33,7 @@ angular.module('chattyWeather.service', [])
 
 
     var getActivities = function(activity){
-      if(activity === undefined) {
-        activity = $window.localStorage.getItem('currentActivity');
-      } else {
-        $window.localStorage.setItem('currentActivity', activity);
-      }
-
+       
       return $http({
         method: 'POST', 
         url: '/api/activities/',
@@ -56,11 +51,7 @@ angular.module('chattyWeather.service', [])
 
 .factory('Food', function ($http, $location, $window) {
   var postFoodPlaces = function(food){
-    if(food === undefined) {
-      food = $window.localStorage.getItem('currentFood');
-    } else {
-      $window.localStorage.setItem('currentFood', food);
-    }
+
     return $http({
       method: 'POST', 
       url: '/api/food/',

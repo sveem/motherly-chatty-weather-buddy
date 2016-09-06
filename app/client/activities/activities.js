@@ -1,11 +1,12 @@
 angular.module('chattyWeather.activities', [])
 
-.controller('activitiesController', function($scope, $http, Activities) {
+.controller('activitiesController', function($scope, $http, Activities, $window) {
 
   $scope.data;
 
   var initializeActivities = function () {
-    Activities.getActivities()
+    var activity =  $window.localStorage.getItem('currentActivity');
+    Activities.getActivities(activity)
     .then(function (activities) {
       $scope.data = activities;
     })
