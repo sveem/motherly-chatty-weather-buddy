@@ -20,9 +20,8 @@ angular.module('chattyWeather.weather', [])
 
 
   $scope.getActivityTerm = function() {
-    // console.log($scope.activity)
     Activities.getActivities($scope.activity)
-     $location.path('/activities');
+    $location.path('/activities');
     return $scope.activity
   };
     
@@ -58,19 +57,16 @@ angular.module('chattyWeather.weather', [])
       skycons.play();
       $scope.phrase = data.phrases[Math.floor(Math.random() * data.phrases.length)];
       $scope.food = data.foods[Math.floor(Math.random() * data.foods.length)];
-      Food.set("yelpFoodTerm", $scope.food) 
-         $scope.foodTips = "Find Nearest"
+      $scope.foodTips = "Find Nearest"
 
       $scope.prop = data.props[Math.floor(Math.random() * data.props.length)];
 
       $scope.activity = data.activity[Math.floor(Math.random() * data.activity.length)];
-        Activities.set("yelpTerm", $scope.activity) 
       $scope.tips = "Find Nearest";
 
       $scope.temp = data.temperature.toFixed(1) + " ℉";
       $scope.city = data.timezone.split("/")[1].split("_").join(" ");
       $scope.time = timeNow();
-      // console.log(data.subwayInfo);
 
       $scope.mtaAlert = data.subwayInfo.length === 0 ? ["All Good!"] : data.subwayInfo;
       
@@ -79,20 +75,22 @@ angular.module('chattyWeather.weather', [])
   
   var positionSunMoon = function() {
     var d = new Date();
-    var min = d.getHours() * 60 +  d.getMinutes() - (7 * 60);
+    var min = d.getHours() * 60 +  d.getMinutes() - (6 * 60);
     //min = 360;
     var rad = 2 * Math.PI * min / 1440
     var top = Math.sin(Math.PI - rad) * (window.innerHeight) 
     var left = Math.cos(Math.PI - rad) * (window.innerHeight)
     console.log(top, left)
 
-    var sunStyle = document.getElementsByClassName("positionSun")[0].style;
-    sunStyle.top = window.innerHeight -150 - top + "px";
-    sunStyle.left = (window.innerWidth / 2) - 150 + left + "px";
+    if(document.getElementsByClassName("positionSun")[0] !== undefined) {
+      var sunStyle = document.getElementsByClassName("positionSun")[0].style;
+      sunStyle.top = window.innerHeight -150 - top + "px";
+      sunStyle.left = (window.innerWidth / 2) - 150 + left + "px";
 
-    var moonStyle = document.getElementsByClassName("positionMoon")[0].style;
-    moonStyle.top = window.innerHeight - 150 + top + "px";
-    moonStyle.left = (window.innerWidth / 2) - 150 - left + "px";
+      var moonStyle = document.getElementsByClassName("positionMoon")[0].style;
+      moonStyle.top = window.innerHeight - 150 + top + "px";
+      moonStyle.left = (window.innerWidth / 2) - 150 - left + "px";
+   }
   }
 
 

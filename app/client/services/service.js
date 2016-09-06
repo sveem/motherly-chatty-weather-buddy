@@ -1,3 +1,5 @@
+
+
 angular.module('chattyWeather.service', [])
 
 .factory('goGet', function($window, $http) {
@@ -24,64 +26,50 @@ angular.module('chattyWeather.service', [])
 
 
 
-.factory('Activities', function ($http, $location) {
-    var storage ={};
-    function set(obj, data){
-      storage[obj] = data
-    }
+.factory('Activities', function ($http, $location, $window) {
 
-    function get(obj){
-      return storage[obj]
-    };
 
     var getActivities = function(activity){
-    return $http({
-      method: 'POST', 
-      url: '/api/activities/',
-      data: {activity: activity}
-   })
-    
-   .then(function (resp) {
+      if(activity === undefined) {
+        activity = $window.localStorage.getItem('currentActivity');
+      } else {
+        $window.localStorage.setItem('currentActivity', activity);
+      }
+
+      return $http({
+        method: 'POST', 
+        url: '/api/activities/',
+        data: {activity: activity}
+    })
+    .then(function (resp) {
       return resp.data;
     });
   }    
-  
-    return {
-      getActivities: getActivities,
-      set           : set,
-      get           : get
-
-    };
+  return {
+    getActivities: getActivities
+  };
 })
 
 
-.factory('Food', function ($http, $location) {
-
-  var storage ={};
-    function set(obj, data){
-      storage[obj] = data
+.factory('Food', function ($http, $location, $window) {
+  var postFoodPlaces = function(food){
+    if(food === undefined) {
+      food = $window.localStorage.getItem('currentActivity');
+    } else {
+      $window.localStorage.setItem('currentActivity', food);
     }
-
-    function get(obj){
-      return storage[obj]
-    };
-    
-    var postFoodPlaces = function(food){
     return $http({
       method: 'POST', 
       url: '/api/food/',
       data: {food: food}
-   })
-    
-   .then(function (resp) {
+    })
+  
+    .then(function (resp) {
       return resp.data;
     });
   }    
   
-    return {
-      postFoodPlaces: postFoodPlaces,
-      set           : set,
-      get           : get
-
-    };
+  return {
+    postFoodPlaces: postFoodPlaces
+  };
 })

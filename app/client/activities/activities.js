@@ -4,19 +4,15 @@ angular.module('chattyWeather.activities', [])
 
   $scope.data;
 
-var initializeActivities = function () {
-	var getTerm = Activities.get("yelpTerm")
-	Activities.getActivities(getTerm)
-	.then(function (activities) {
-	         $scope.data = activities;
-	   
-	     })
-	.catch(function (error) {
-		console.error(error);
-	});
-
-
-};
+  var initializeActivities = function () {
+    Activities.getActivities()
+    .then(function (activities) {
+      $scope.data = activities;
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+  };
 
   initializeActivities()
 
