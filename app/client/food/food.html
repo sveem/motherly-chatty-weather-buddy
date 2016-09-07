@@ -1,21 +1,19 @@
 <link rel="stylesheet" href="../style/style_otherPages.css">
 <div ng-controller="WeatherController">
 <div class="{{ weatherEvent }}">
-  <h1>Food</h1>
-
-  <h2>These Places are Calling your Name </h2>
-
-  <div ng-repeat="businesses in data" >
-  					 
-    <div>
-      <a href="{{businesses.url}}" target="_blank">
-        <img class="thumb" ng-src="{{ businesses.image_url }}" />
-        <img ng-src="{{ businesses.rating_img_url }}"/>
-        <h2>{{ businesses.name }}</h2>
-      </a>
-      <blockquote>{{ businesses.snippet_text }}</blockquote>
+  <div class="container">
+    <h1 class="linkTitle">&ndash; Food &ndash;</h1>
+    <h2 class="linkSubTitle">These Places are Calling your Name </h2>
+    <div ng-repeat="businesses in data">				 
+      <div class="linkBox">
+        <a href="{{businesses.url}}" target="_blank">
+          <img class="thumb" ng-src="{{businesses.image_url}}" />
+          <img ng-src="{{businesses.rating_img_url}}"/>
+          <h2>{{ businesses.name }}</h2>
+        </a>
+        <blockquote>{{ businesses.snippet_text }}</blockquote>
+      </div>
     </div>
-
   </div>
 </div>
 </div>

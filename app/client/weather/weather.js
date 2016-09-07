@@ -8,7 +8,7 @@ angular.module('chattyWeather.weather', [])
   $scope.activity;
   $scope.mtaAlert;
   $scope.temp;
-  $scope.city;
+  $scope.city = "";
   $scope.time;
   $scope.weatherEvent;
 
