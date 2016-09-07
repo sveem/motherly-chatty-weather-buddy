@@ -9,8 +9,8 @@
              
     <div>
       <a href="{{businesses.url}}" target="_blank">
-        <img class="thumb" src="{{businesses.image_url}}" />
-        <img src="{{businesses.rating_img_url}}"/>
+        <img class="thumb" ng-src="{{businesses.image_url}}" />
+        <img ng-src="{{businesses.rating_img_url}}"/>
         <h2>{{ businesses.name }}</h2>
       </a>
       <blockquote>{{ businesses.snippet_text }}</blockquote>
