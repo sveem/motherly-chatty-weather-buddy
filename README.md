@@ -2,6 +2,8 @@
 
 Chatty Weather - A handy weather app delivering customizable weather forecasts and helpful recommendations using the MEAN stack
 
+# ![Chatty Weather](/client/assets/chatty_weather.png)
+
 ## Team
 
  - __Product Owner__: [Dohun Park](https://github.com/DOH1211)
@@ -9,6 +11,10 @@ Chatty Weather - A handy weather app delivering customizable weather forecasts a
 - __Git Manager__: [Selim Cebecioglu](https://github.com/selimc)
 
 - __Development Team Members__: [Svetlin Mladenov](http://github.com/sveem), [Wen Tran](https://github.com/wentran), [Selim Cebecioglu](https://github.com/selimc), [Dohun Park](https://github.com/DOH1211)
+
+## Tech Stack
+
+!['techstack'](/client/assests/techstack.png)
 
 ## Directory Layout
     
