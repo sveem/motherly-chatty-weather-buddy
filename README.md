@@ -14,7 +14,7 @@ Chatty Weather - A handy weather app delivering customizable weather forecasts a
 
 ## Tech Stack
 
-!['techstack'](/client/assests/techstack.png)
+!['mean'](/client/assests/mean.png)
 
 ## Directory Layout
     
