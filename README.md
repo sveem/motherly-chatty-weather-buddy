@@ -1,6 +1,6 @@
 # Synopsis
 
-Chatty Weather - A handy weather app delivering customizable weather forecasts and helpful recommendations using the MEAN stack
+Chatty Weather - A handy weather app delivering customizable weather forecasts and helpful recommendations using the MEAN stack.
 
 # ![Chatty Weather](/app/client/assets/chatty_weather.png)
 
